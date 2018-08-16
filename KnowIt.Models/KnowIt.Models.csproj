@@ -69,6 +69,10 @@
     <Compile Include="Equipment\EquipmentDetail.cs" />
     <Compile Include="Equipment\EquipmentEdit.cs" />
     <Compile Include="Equipment\EquipmentListItem.cs" />
+    <Compile Include="MashUp\MashUpCreate.cs" />
+    <Compile Include="MashUp\MashUpDetail.cs" />
+    <Compile Include="MashUp\MashUpEdit.cs" />
+    <Compile Include="MashUp\MashUpListItem.cs" />
     <Compile Include="Medication\MedicationCreate.cs" />
     <Compile Include="Medication\MedicationDetail.cs" />
     <Compile Include="Medication\MedicationEdit.cs" />
@@ -80,12 +84,18 @@
     <Compile Include="Procedure\ProcedureCreate.cs" />
     <Compile Include="Procedure\ProcedureDetail.cs" />
     <Compile Include="Procedure\ProcedureEdit.cs" />
+    <Compile Include="Procedure\ProcedureListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\KnowIt.Data\KnowIt.Data.csproj">
+      <Project>{8CA5D7AA-1254-4C77-8FC6-D69AA9DEB0FF}</Project>
+      <Name>KnowIt.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

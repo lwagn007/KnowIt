@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Equipment.cs" />
+    <Compile Include="MashUp.cs" />
     <Compile Include="Medication.cs" />
     <Compile Include="Physician.cs" />
     <Compile Include="IdentityModels.cs" />

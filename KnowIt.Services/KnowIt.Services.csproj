@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EquipmentService.cs" />
+    <Compile Include="MashUpService.cs" />
     <Compile Include="MedicationService.cs" />
     <Compile Include="PhysicianService.cs" />
     <Compile Include="ProcedureService.cs" />
@@ -74,6 +75,16 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KnowIt.Data\KnowIt.Data.csproj">
+      <Project>{8ca5d7aa-1254-4c77-8fc6-d69aa9deb0ff}</Project>
+      <Name>KnowIt.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KnowIt.Models\KnowIt.Models.csproj">
+      <Project>{F9C92B01-4F09-48FA-9E2A-E05F3004FFD6}</Project>
+      <Name>KnowIt.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
