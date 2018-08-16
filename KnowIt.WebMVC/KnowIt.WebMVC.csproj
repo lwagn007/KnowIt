@@ -278,13 +278,17 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Physician\Index.cshtml" />
+    <Content Include="Views\Physician\Create.cshtml" />
+    <Content Include="Views\Physician\Edit.cshtml" />
+    <Content Include="Views\Physician\Details.cshtml" />
+    <Content Include="Views\Physician\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Equipment\" />
     <Folder Include="Views\MashUp\" />
     <Folder Include="Views\Medication\" />
-    <Folder Include="Views\Physician\" />
     <Folder Include="Views\Procedure\" />
   </ItemGroup>
   <ItemGroup>

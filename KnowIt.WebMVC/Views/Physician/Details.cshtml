@@ -1,0 +1,42 @@
+﻿@model KnowIt.Models.Physician.PhysicianDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Physician Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicianId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicianId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicianFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicianFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicianLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicianLastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PhysicianId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

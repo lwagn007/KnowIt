@@ -51,6 +51,14 @@ namespace KnowIt.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Detail(int id)
+        {
+            var svc = CreatePhysicianService();
+            var model = svc.GetPhysicianById(id);
+
+            return View(model);
+        }
+
         public ActionResult Edit(int id)
         {
             var service = CreatePhysicianService();
@@ -77,6 +85,20 @@ namespace KnowIt.WebMVC.Controllers
         }
 
         [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePhysician(int id)
+        {
+            var service = CreatePhysicianService();
+
+            service.DeletePhysician(id);
+
+            TempData["SaveResult"] = "Physician entry deleted.";
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, PhysicianEdit model)
         {
@@ -90,7 +112,7 @@ namespace KnowIt.WebMVC.Controllers
 
             var service = CreatePhysicianService();
 
-            if(service.UpdatePhysician())
+            if(service.UpdatePhysician(model))
             {
                 TempData["SaveResult"] = "Your physician entry was updated.";
                 return RedirectToAction("Index");

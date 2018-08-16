@@ -1,5 +1,5 @@
-﻿using KnowIt.Data;
-using System;
+﻿using System;
+using KnowIt.Data;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
