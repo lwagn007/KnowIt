@@ -68,6 +68,15 @@
     <Compile Include="Equipment.cs" />
     <Compile Include="MashUp.cs" />
     <Compile Include="Medication.cs" />
+    <Compile Include="Migrations\201808161730391_InitialCreate.cs" />
+    <Compile Include="Migrations\201808161730391_InitialCreate.Designer.cs">
+      <DependentUpon>201808161730391_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808161943271_initialupdatephysiciancrud.cs" />
+    <Compile Include="Migrations\201808161943271_initialupdatephysiciancrud.Designer.cs">
+      <DependentUpon>201808161943271_initialupdatephysiciancrud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Physician.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Procedure.cs" />
@@ -76,6 +85,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201808161730391_InitialCreate.resx">
+      <DependentUpon>201808161730391_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808161943271_initialupdatephysiciancrud.resx">
+      <DependentUpon>201808161943271_initialupdatephysiciancrud.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

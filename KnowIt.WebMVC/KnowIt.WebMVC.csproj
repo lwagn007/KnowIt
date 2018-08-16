@@ -280,8 +280,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Physician\Index.cshtml" />
     <Content Include="Views\Physician\Create.cshtml" />
-    <Content Include="Views\Physician\Edit.cshtml" />
     <Content Include="Views\Physician\Details.cshtml" />
+    <Content Include="Views\Physician\Edit.cshtml" />
     <Content Include="Views\Physician\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>

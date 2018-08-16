@@ -51,7 +51,7 @@ namespace KnowIt.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult Detail(int id)
+        public ActionResult Details(int id)
         {
             var svc = CreatePhysicianService();
             var model = svc.GetPhysicianById(id);

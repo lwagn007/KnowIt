@@ -21,6 +21,6 @@ namespace KnowIt.Models.Physician
         public string PhysicianLastName { get; set; }
 
         [Required]
-        public MedicalSpecialty Specialty { get; set; }
+        public string Specialty { get; set; }
     }
 }

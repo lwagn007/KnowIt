@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Physician Details</h4>
+    <h4>PhysicianDetail</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -32,6 +32,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.PhysicianLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specialty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specialty)
         </dd>
 
     </dl>
