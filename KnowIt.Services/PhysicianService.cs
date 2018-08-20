@@ -28,7 +28,6 @@ namespace KnowIt.Services
                     Specialty = model.Specialty
                 };
 
-
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Physicians.Add(entity);

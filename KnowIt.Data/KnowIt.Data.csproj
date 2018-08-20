@@ -76,6 +76,22 @@
     <Compile Include="Migrations\201808161943271_initialupdatephysiciancrud.Designer.cs">
       <DependentUpon>201808161943271_initialupdatephysiciancrud.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808171427156_secondmigrationprocedurecrud.cs" />
+    <Compile Include="Migrations\201808171427156_secondmigrationprocedurecrud.Designer.cs">
+      <DependentUpon>201808171427156_secondmigrationprocedurecrud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808181414428_updatedatabase.cs" />
+    <Compile Include="Migrations\201808181414428_updatedatabase.Designer.cs">
+      <DependentUpon>201808181414428_updatedatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808192239029_medicationcrud.cs" />
+    <Compile Include="Migrations\201808192239029_medicationcrud.Designer.cs">
+      <DependentUpon>201808192239029_medicationcrud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808192329451_equipmentcrud.cs" />
+    <Compile Include="Migrations\201808192329451_equipmentcrud.Designer.cs">
+      <DependentUpon>201808192329451_equipmentcrud.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Physician.cs" />
     <Compile Include="IdentityModels.cs" />
@@ -92,6 +108,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808161943271_initialupdatephysiciancrud.resx">
       <DependentUpon>201808161943271_initialupdatephysiciancrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808171427156_secondmigrationprocedurecrud.resx">
+      <DependentUpon>201808171427156_secondmigrationprocedurecrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808181414428_updatedatabase.resx">
+      <DependentUpon>201808181414428_updatedatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808192239029_medicationcrud.resx">
+      <DependentUpon>201808192239029_medicationcrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808192329451_equipmentcrud.resx">
+      <DependentUpon>201808192329451_equipmentcrud.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

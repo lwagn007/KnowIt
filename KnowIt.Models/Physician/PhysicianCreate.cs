@@ -21,6 +21,8 @@ namespace KnowIt.Models.Physician
         public string PhysicianLastName { get; set; }
 
         [Required]
+        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
+        [MaxLength(150, ErrorMessage = "There are to many characters. Only 150 characters are allowed.")]
         public string Specialty { get; set; }
     }
 }

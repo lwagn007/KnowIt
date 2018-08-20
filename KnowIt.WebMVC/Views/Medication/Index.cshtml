@@ -1,0 +1,51 @@
+﻿@model IEnumerable<KnowIt.Models.Medication.MedicationListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MedicationId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MedicationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MedicationClass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MedicationUse)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicationId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicationClass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicationUse)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MedicationId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MedicationId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.MedicationId })
+        </td>
+    </tr>
+}
+
+</table>

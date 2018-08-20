@@ -1,0 +1,42 @@
+﻿@model KnowIt.Models.Equipment.EquipmentDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EquipmentDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentNote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentNote)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<KnowIt.Models.Procedure.ProcedureListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProcedureId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProcedureName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProcedureNote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProcedureRoute)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProcedureId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProcedureName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProcedureNote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProcedureRoute)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProcedureId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ProcedureId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProcedureId })
+        </td>
+    </tr>
+}
+
+</table>

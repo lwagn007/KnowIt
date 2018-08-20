@@ -8,5 +8,8 @@ namespace KnowIt.Models.Equipment
 {
     public class EquipmentDetail
     {
+        public int EquipmentId { get; set; }
+        public string EquipmentName { get; set; }
+        public string EquipmentNote { get; set; }
     }
 }

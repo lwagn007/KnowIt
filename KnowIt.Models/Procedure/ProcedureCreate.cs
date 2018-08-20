@@ -1,4 +1,5 @@
 ﻿using System;
+using KnowIt.Data;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace KnowIt.Models.Procedure
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 or more characters.")]
         [MaxLength(150, ErrorMessage = "There are to many characters, max of 150 characters allowed.")]
-        public string ProcedureFocus { get; set; }
+        public string ProcedureNote { get; set; }
 
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 or more characters.")]

@@ -20,13 +20,6 @@ namespace KnowIt.WebMVC.Controllers
             return View(model);
         }
 
-        private PhysicianService NewMethod()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new PhysicianService(userId);
-            return service;
-        }
-
         public ActionResult Create()
         {
             return View();
@@ -71,31 +64,7 @@ namespace KnowIt.WebMVC.Controllers
                     PhysicianLastName = detail.PhysicianLastName,
                     Specialty = detail.Specialty
                 };
-
             return View(model);
-        }
-
-        [ActionName("Delete")]
-        public ActionResult Delete(int id)
-        {
-            var svc = CreatePhysicianService();
-            var model = svc.GetPhysicianById(id);
-
-            return View(model);
-        }
-
-        [HttpPost]
-        [ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeletePhysician(int id)
-        {
-            var service = CreatePhysicianService();
-
-            service.DeletePhysician(id);
-
-            TempData["SaveResult"] = "Physician entry deleted.";
-
-            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -122,7 +91,37 @@ namespace KnowIt.WebMVC.Controllers
             return View(model);
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreatePhysicianService();
+            var model = svc.GetPhysicianById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePhysician(int id)
+        {
+            var service = CreatePhysicianService();
+
+            service.DeletePhysician(id);
+
+            TempData["SaveResult"] = "Physician entry deleted.";
+
+            return RedirectToAction("Index");
+        }
+
         private PhysicianService CreatePhysicianService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new PhysicianService(userId);
+            return service;
+        }
+
+        private PhysicianService NewMethod()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new PhysicianService(userId);

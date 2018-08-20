@@ -14,16 +14,11 @@ namespace KnowIt.Data
 
         [Required]
         public Guid OwnerID { get; set; }
-        
-        //[Required]
-        //public string EquipmentName { get; set; }
+
+        [Required]
+        public string EquipmentName { get; set; }
 
         [Required]
         public string EquipmentNote { get; set; }
-
-        [Required]
-        public DateTimeOffset CreatedUtc { get; set; }
-
-        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

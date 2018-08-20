@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace KnowIt.Models.Medication
 {
-    class MedicationEdit
+    public class MedicationEdit
     {
+        public int MedicationId { get; set; }
+        public string MedicationName { get; set; }
+        public string MedicationClass { get; set; }
+        public string MedicationUse { get; set; }
     }
 }

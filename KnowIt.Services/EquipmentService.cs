@@ -17,14 +17,14 @@ namespace KnowIt.Services
             _userId = userId;
         }
 
-        public bool CreateEquipment (EquipmentCreate model)
+        public bool CreateEquipment(EquipmentCreate model)
         {
             var entity =
                 new Equipment()
                 {
                     OwnerID = _userId,
-                    EquipmentNote = model.EquipmentNote,
-                    CreatedUtc = DateTimeOffset.Now
+                    EquipmentName = model.EquipmentName,
+                    EquipmentNote = model.EquipmentNote
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -34,54 +34,72 @@ namespace KnowIt.Services
             }
         }
 
-        //public IEnumerable<EquipmentListItem> GetEquipment()
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var query =
-        //            ctx
-        //                .Equipments
-        //                .Where(e => e.OwnerID == _userId)
-        //                .Select(
-        //                e => new EquipmentListItem
-        //                {
-        //                    EquipmentID = e.EquipmentID,
-        //                    EquipmentNote = e.EquipmentNote,
-        //                    CreatedUtc = e.CreatedUtc
-        //                }
-        //             );
-        //        return query.ToArray();
-        //    }
-        //}
+        public IEnumerable<EquipmentListItem> GetEquipments()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Equipments
+                        .Where(e => e.OwnerID == _userId)
+                        .Select(
+                        e => new EquipmentListItem
+                        {
+                            EquipmentId = e.EquipmentID,
+                            EquipmentName = e.EquipmentName,
+                            EquipmentNote = e.EquipmentNote,
+                        }
+                      );
+                return query.ToArray();
+            }
+        }
 
-        //public bool UpdateEquipment(EquipmentEdit model)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //            ctx
-        //                .Equipments
-        //                .Single(e => e.EquipmentID == model.EquipmentID && e.OwnerID == _userId);
+        public EquipmentDetail GetEquipmentById(int equipmentId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Equipments
+                        .Single(e => e.EquipmentID == equipmentId && e.OwnerID == _userId);
+                return
+                    new EquipmentDetail
+                    {
+                        EquipmentId = entity.EquipmentID,
+                        EquipmentName = entity.EquipmentName,
+                        EquipmentNote = entity.EquipmentNote,
+                    };
+            }
+        }
 
-        //        entity.EquipmentNote = model.EquipmentNote;
-        //        entity.ModifiedUtc = DateTimeOffset.Now;
+        public bool UpdateEquipment(EquipmentEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Equipments
+                        .Single(e => e.EquipmentID == model.EquipmentId && e.OwnerID == _userId);
 
-        //        return ctx.SaveChanges() == 1;
-        //    }
-        //}
-        
-        //public bool DeleteEquipment(int equipmentId)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //            ctx
-        //                .Equipments
-        //                .Single(e => e.EquipmentID == equipmentId && e.OwnerID == _userId);
-        //        ctx.Equipments.Remove(entity);
+                entity.EquipmentName = model.EquipmentName;
+                entity.EquipmentNote = model.EquipmentNote;
 
-        //        return ctx.SaveChanges() == 1;
-        //    }
-        //}
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteEquipment(int equipmentId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Equipments
+                        .Single(e => e.EquipmentID == equipmentId && e.OwnerID == _userId);
+                ctx.Equipments.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

@@ -283,13 +283,25 @@
     <Content Include="Views\Physician\Details.cshtml" />
     <Content Include="Views\Physician\Edit.cshtml" />
     <Content Include="Views\Physician\Delete.cshtml" />
+    <Content Include="Views\Procedure\Index.cshtml" />
+    <Content Include="Views\Procedure\Create.cshtml" />
+    <Content Include="Views\Procedure\Details.cshtml" />
+    <Content Include="Views\Procedure\Edit.cshtml" />
+    <Content Include="Views\Procedure\Delete.cshtml" />
+    <Content Include="Views\Medication\Index.cshtml" />
+    <Content Include="Views\Medication\Create.cshtml" />
+    <Content Include="Views\Medication\Details.cshtml" />
+    <Content Include="Views\Medication\Edit.cshtml" />
+    <Content Include="Views\Medication\Delete.cshtml" />
+    <Content Include="Views\Equipment\Index.cshtml" />
+    <Content Include="Views\Equipment\Create.cshtml" />
+    <Content Include="Views\Equipment\Details.cshtml" />
+    <Content Include="Views\Equipment\Delete.cshtml" />
+    <Content Include="Views\Equipment\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Equipment\" />
     <Folder Include="Views\MashUp\" />
-    <Folder Include="Views\Medication\" />
-    <Folder Include="Views\Procedure\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
