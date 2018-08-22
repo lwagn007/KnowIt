@@ -8,5 +8,19 @@ namespace KnowIt.Services
 {
     public class MashUpService
     {
+        private Guid _ownerId;
+
+        private PhysicianService physicianService;
+
+        public MashUpService(Guid ownerId)
+        {
+            _ownerId = ownerId;
+            physicianService = new PhysicianService(ownerId);
+        }
+
+
+
+
+
     }
 }

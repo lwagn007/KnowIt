@@ -1,0 +1,80 @@
+﻿@model KnowIt.Models.PhysicianProcedure.PhysicianPreferenceEdit
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PhysicianPreferenceEdit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicianPreferenceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicianPreferenceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicianId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicianId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProcedureId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProcedureId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicianLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicianLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicianFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicianFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specialty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specialty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProcedureName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProcedureName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KnowIt.Models.MashUp
 {
-    class MashUpDetail
+    public class MashUpDetail
     {
     }
 }

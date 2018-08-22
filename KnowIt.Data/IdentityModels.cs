@@ -36,6 +36,8 @@ namespace KnowIt.Data
         public DbSet<Medication> Medications { get; set; }
         public DbSet<Physician> Physicians { get; set; }
         public DbSet<Procedure> Procedures { get; set; }
+        public DbSet<PhysicianPreference> PhysicianPreferences { get; set; }
+        public DbSet<MashUp> MashUps { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

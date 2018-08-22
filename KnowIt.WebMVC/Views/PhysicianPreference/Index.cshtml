@@ -1,0 +1,57 @@
+﻿@model IEnumerable<KnowIt.Models.PhysicianProcedure.PhysicianPreferenceListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PhysicianPreferenceId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhysicianId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProcedureId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhysicianLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProcedureName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhysicianPreferenceId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhysicianId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProcedureId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhysicianLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProcedureName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.PhysicianPreferenceId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.PhysicianPreferenceId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PhysicianPreferenceId })
+        </td>
+    </tr>
+}
+
+</table>

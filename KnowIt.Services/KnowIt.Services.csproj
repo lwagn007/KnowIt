@@ -68,6 +68,7 @@
     <Compile Include="EquipmentService.cs" />
     <Compile Include="MashUpService.cs" />
     <Compile Include="MedicationService.cs" />
+    <Compile Include="PhysicianPreferenceService.cs" />
     <Compile Include="PhysicianService.cs" />
     <Compile Include="ProcedureService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

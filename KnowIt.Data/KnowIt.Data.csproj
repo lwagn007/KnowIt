@@ -92,9 +92,22 @@
     <Compile Include="Migrations\201808192329451_equipmentcrud.Designer.cs">
       <DependentUpon>201808192329451_equipmentcrud.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808211733504_initialmashup.cs" />
+    <Compile Include="Migrations\201808211733504_initialmashup.Designer.cs">
+      <DependentUpon>201808211733504_initialmashup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808211810511_physicianfk.cs" />
+    <Compile Include="Migrations\201808211810511_physicianfk.Designer.cs">
+      <DependentUpon>201808211810511_physicianfk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808221113190_physicianpreferencecrud.cs" />
+    <Compile Include="Migrations\201808221113190_physicianpreferencecrud.Designer.cs">
+      <DependentUpon>201808221113190_physicianpreferencecrud.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Physician.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="PhysicianPreference.cs" />
     <Compile Include="Procedure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -120,6 +133,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808192329451_equipmentcrud.resx">
       <DependentUpon>201808192329451_equipmentcrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808211733504_initialmashup.resx">
+      <DependentUpon>201808211733504_initialmashup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808211810511_physicianfk.resx">
+      <DependentUpon>201808211810511_physicianfk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808221113190_physicianpreferencecrud.resx">
+      <DependentUpon>201808221113190_physicianpreferencecrud.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

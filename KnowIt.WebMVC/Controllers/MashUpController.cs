@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KnowIt.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,11 @@ namespace KnowIt.WebMVC.Controllers
 {
     public class MashUpController : Controller
     {
-        // GET: MashUp
         public ActionResult Index()
         {
             return View();
         }
+
+
     }
 }
