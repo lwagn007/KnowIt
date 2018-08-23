@@ -12,8 +12,12 @@ namespace KnowIt.Data
         public Guid OwnerID { get; set; }
         public int PhysicianID { get; set; }
         public int ProcedureID { get; set; }
+        public int MedicationID { get; set; }
+        public int EquipmentID { get; set; }
 
         public virtual Physician Physician { get; set; }
         public virtual Procedure Procedure { get; set; }
+        public virtual Medication Medication { get; set; }
+        public virtual Equipment Equipment { get; set; }
     }
 }

@@ -46,10 +46,11 @@ namespace KnowIt.Services
                         e => new PhysicianPreferenceListItem
                         {
                             PhysicianPreferenceId = e.PhysicianPreferenceID,
-                            PhysicianId = e.PhysicianID,
-                            ProcedureId = e.ProcedureID,
+                            PhysicianId = e.Physician.PhysicianID,
+                            ProcedureId = e.Procedure.ProcedureID,
                             PhysicianLastName = e.Physician.PhysicianLastName,
                             ProcedureName = e.Procedure.ProcedureName,
+                            ProcedureNote = e.Procedure.ProcedureNote,
                         }
                       );
                 return query.ToArray();
@@ -68,13 +69,14 @@ namespace KnowIt.Services
                     new PhysicianPreferenceDetail
                     {
                         PhysicianPreferenceId = entity.PhysicianPreferenceID,
-                        PhysicianId = entity.PhysicianID,
-                        ProcedureId = entity.ProcedureID,
+                        PhysicianId = entity.Physician.PhysicianID,
+                        ProcedureId = entity.Procedure.ProcedureID,
                         PhysicianLastName = entity.Physician.PhysicianLastName,
                         PhysicianFirstName = entity.Physician.PhysicianFirstName,
                         Specialty = entity.Physician.Specialty,
                         ProcedureName = entity.Procedure.ProcedureName,
-                        ProcedureNote = entity.Procedure.ProcedureNote
+                        ProcedureNote = entity.Procedure.ProcedureNote,
+                        ProcedureRoute = entity.Procedure.ProcedureRoute
                     };
             }
         }

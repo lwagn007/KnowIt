@@ -68,15 +68,20 @@ namespace KnowIt.WebMVC.Controllers
 
         public ActionResult Edit(int id)
         {
-            var service = CreatePhysicianService();
-            var detail = service.GetPhysicianById(id);
+            var service = CreatePhysicianPreferenceService();
+            var detail = service.GetPhysicianPreferenceById(id);
             var model =
                 new PhysicianPreferenceEdit
                 {
+                    PhysicianPreferenceId = detail.PhysicianPreferenceId,
                     PhysicianId = detail.PhysicianId,
+                    ProcedureId = detail.ProcedureId,
                     PhysicianFirstName = detail.PhysicianFirstName,
                     PhysicianLastName = detail.PhysicianLastName,
-                    Specialty = detail.Specialty
+                    Specialty = detail.Specialty,
+                    ProcedureName = detail.ProcedureName,
+                    ProcedureNote = detail.ProcedureNote,
+                    ProcedureRoute = detail.ProcedureRoute
                 };
             return View(model);
         }
