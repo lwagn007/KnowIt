@@ -23,10 +23,8 @@ namespace KnowIt.Services
                 new PhysicianPreference()
                 {
                     OwnerID = _userId,
-                    PhysicianLastName = model.PhysicianLastName,
-                    PhysicianFirstName = model.PhysicianFirstName,
-                    Specialty = model.Specialty,
-                    ProcedureName = model.ProcedureName
+                    PhysicianID = model.PhysicianId,
+                    ProcedureID = model.ProcedureId,
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -48,54 +46,58 @@ namespace KnowIt.Services
                         e => new PhysicianPreferenceListItem
                         {
                             PhysicianPreferenceId = e.PhysicianPreferenceID,
-                            PhysicianLastName = e.PhysicianLastName,
-                            PhysicianFirstName = e.PhysicianFirstName,
-                            ProcedureName = e.ProcedureName
+                            PhysicianId = e.PhysicianID,
+                            ProcedureId = e.ProcedureID,
+                            PhysicianLastName = e.Physician.PhysicianLastName,
+                            ProcedureName = e.Procedure.ProcedureName,
                         }
                       );
                 return query.ToArray();
             }
         }
 
-        public PhysicianPreferenceDetail GetPhysicianPreferenceById(int physicianPreferenceId)
+        public PhysicianPreferenceDetail GetPhysicianPreferenceById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .PhysicianPreferences
-                        .Single(e => e.PhysicianPreferenceID == physicianPreferenceId && e.OwnerID == _userId);
+                        .Single(e => e.PhysicianPreferenceID == id && e.OwnerID == _userId);
                 return
                     new PhysicianPreferenceDetail
                     {
                         PhysicianPreferenceId = entity.PhysicianPreferenceID,
                         PhysicianId = entity.PhysicianID,
                         ProcedureId = entity.ProcedureID,
-                        PhysicianLastName = entity.PhysicianLastName,
-                        PhysicianFirstName = entity.PhysicianFirstName,
-                        Specialty = entity.Specialty,
-                        ProcedureName = entity.ProcedureName
+                        PhysicianLastName = entity.Physician.PhysicianLastName,
+                        PhysicianFirstName = entity.Physician.PhysicianFirstName,
+                        Specialty = entity.Physician.Specialty,
+                        ProcedureName = entity.Procedure.ProcedureName,
+                        ProcedureNote = entity.Procedure.ProcedureNote
                     };
             }
         }
 
-        //public bool UpdatePhysician(PhysicianPreferenceEdit model)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //            ctx
-        //                .PhysicianPreferences
-        //                .Single(e => e.PhysicianPreferenceID == model.PhysicianPreferenceId && e.OwnerID == _userId);
+        public bool UpdatePhysicianPreference(PhysicianPreferenceEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .PhysicianPreferences
+                        .Single(e => e.PhysicianPreferenceID == model.PhysicianPreferenceId && e.OwnerID == _userId);
 
-        //        entity.PhysicianFirstName = model.PhysicianFirstName;
-        //        entity.PhysicianLastName = model.PhysicianLastName;
-        //        entity.Specialty = model.Specialty;
-        //        entity.ProcedureName = model.ProcedureName;
+                entity.Physician.PhysicianFirstName = model.PhysicianFirstName;
+                entity.Physician.PhysicianLastName = model.PhysicianLastName;
+                entity.Physician.Specialty = model.Specialty;
+                entity.Procedure.ProcedureName = model.ProcedureName;
+                entity.Procedure.ProcedureNote = model.ProcedureNote;
+                entity.Procedure.ProcedureRoute = model.ProcedureRoute;
 
-        //        return ctx.SaveChanges() == 1;
-        //    }
-        //}
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
         public bool DeletePhysicianPreference(int physicianPreferenceId)
         {

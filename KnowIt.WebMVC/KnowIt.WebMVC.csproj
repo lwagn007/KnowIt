@@ -300,9 +300,9 @@
     <Content Include="Views\Equipment\Delete.cshtml" />
     <Content Include="Views\Equipment\Edit.cshtml" />
     <Content Include="Views\PhysicianPreference\Index.cshtml" />
-    <Content Include="Views\PhysicianPreference\Details.cshtml" />
     <Content Include="Views\PhysicianPreference\Delete.cshtml" />
     <Content Include="Views\PhysicianPreference\Create.cshtml" />
+    <Content Include="Views\PhysicianPreference\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,5 @@
-﻿using KnowIt.Models.PhysicianProcedure;
+﻿using KnowIt.Data;
+using KnowIt.Models.PhysicianProcedure;
 using KnowIt.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -12,17 +13,22 @@ namespace KnowIt.WebMVC.Controllers
     public class PhysicianPreferenceController : Controller
     {
         // GET: PhysicianPreference
-            public ActionResult Index()
-            {
-                PhysicianPreferenceService service = NewMethod();
-                var model = service.GetPhysicianPreferences();
-                return View(model);
-            }
+        public ActionResult Index()
+        {
+            PhysicianPreferenceService service = NewMethod();
+            var model = service.GetPhysicianPreferences();
+            return View(model);
+        }
 
-            public ActionResult Create()
-            {
-                return View();
-            }
+        public ActionResult Create()
+        {
+            var physicianService = CreatePhysicianService();
+            var procedureService = CreateProcedureService();
+
+            ViewBag.PhysicianID = new SelectList(physicianService.GetPhysicians(), "PhysicianID", "PhysicianLastName");
+            ViewBag.ProcedureID = new SelectList(procedureService.GetProcedures(), "ProcedureID", "ProcedureName");
+            return View();
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -31,6 +37,14 @@ namespace KnowIt.WebMVC.Controllers
             if (!ModelState.IsValid) return View(model);
 
             var service = CreatePhysicianPreferenceService();
+            var physicianService = CreatePhysicianService();
+            var procedureService = CreateProcedureService();
+
+            physicianService.GetPhysicianById(model.PhysicianId);
+            procedureService.GetProcedureById(model.ProcedureId);
+
+            ViewBag.PhysicianID = new SelectList(physicianService.GetPhysicians(), "PhysicianID", "PhysicianLastName", model.PhysicianId);
+            ViewBag.ProcedureID = new SelectList(procedureService.GetProcedures(), "ProcedureID", "ProcedureName", model.ProcedureId);
 
             if (service.CreatePhysicianPreference(model))
             {
@@ -51,44 +65,45 @@ namespace KnowIt.WebMVC.Controllers
             return View(model);
         }
 
-        //public ActionResult Edit(int id)
-        //{
-        //    var service = CreatePhysicianPreferenceService();
-        //    var detail = service.GetPhysicianPreferenceById(id);
-        //    var model =
-        //        new PhysicianPreferenceEdit
-        //        {
 
-        //            PhysicianFirstName = detail.PhysicianFirstName,
-        //            PhysicianLastName = detail.PhysicianLastName,
-        //            Specialty = detail.Specialty
-        //        };
-        //    return View(model);
-        //}
+        public ActionResult Edit(int id)
+        {
+            var service = CreatePhysicianService();
+            var detail = service.GetPhysicianById(id);
+            var model =
+                new PhysicianPreferenceEdit
+                {
+                    PhysicianId = detail.PhysicianId,
+                    PhysicianFirstName = detail.PhysicianFirstName,
+                    PhysicianLastName = detail.PhysicianLastName,
+                    Specialty = detail.Specialty
+                };
+            return View(model);
+        }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(int id, PhysicianPreferenceEdit model)
-        //{
-        //    if (!ModelState.IsValid) return View(model);
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, PhysicianPreferenceEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
 
-        //    if (model.PhysicianPreferenceId != id)
-        //    {
-        //        ModelState.AddModelError("", "Id Mismatch");
-        //        return View(model);
-        //    }
+            if (model.PhysicianPreferenceId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
 
-        //    var service = CreatePhysicianPreferenceService();
+            var service = CreatePhysicianPreferenceService();
 
-        //    if (service.UpdatePhysicianPreference(model))
-        //    {
-        //        TempData["SaveResult"] = "Your physician preference entry was updated.";
-        //        return RedirectToAction("Index");
-        //    }
+            if (service.UpdatePhysicianPreference(model))
+            {
+                TempData["SaveResult"] = "Your physician preference entry was updated.";
+                return RedirectToAction("Index");
+            }
 
-        //    ModelState.AddModelError("", "Your physician preference entry could not be updated.");
-        //    return View(model);
-        //}
+            ModelState.AddModelError("", "Your physician preference entry could not be updated.");
+            return View(model);
+        }
 
         [ActionName("Delete")]
         public ActionResult Delete(int id)
@@ -111,6 +126,19 @@ namespace KnowIt.WebMVC.Controllers
             TempData["SaveResult"] = "Physician Preference entry deleted.";
 
             return RedirectToAction("Index");
+        }
+
+        private ProcedureService CreateProcedureService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ProcedureService(userId);
+            return service;
+        }
+        private PhysicianService CreatePhysicianService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new PhysicianService(userId);
+            return service;
         }
 
         private PhysicianPreferenceService CreatePhysicianPreferenceService()

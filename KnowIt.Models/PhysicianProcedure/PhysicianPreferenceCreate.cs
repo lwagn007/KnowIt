@@ -9,9 +9,7 @@ namespace KnowIt.Models.PhysicianProcedure
 {
     public class PhysicianPreferenceCreate
     {
-        public string PhysicianLastName { get; set; }
-        public string PhysicianFirstName { get; set; }
-        public string Specialty { get; set; }
-        public string ProcedureName { get; set; }
+        public int PhysicianId { get; set; }
+        public int ProcedureId { get; set; }
     }
 }

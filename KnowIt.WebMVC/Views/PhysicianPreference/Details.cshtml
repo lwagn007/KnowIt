@@ -10,7 +10,7 @@
     <h4>PhysicianPreferenceDetail</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.PhysicianPreferenceId)
         </dt>
 
@@ -32,7 +32,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.ProcedureId)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.PhysicianLastName)
@@ -64,6 +64,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.ProcedureName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProcedureNote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProcedureNote)
         </dd>
 
     </dl>

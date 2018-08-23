@@ -12,7 +12,7 @@ namespace KnowIt.Models.PhysicianProcedure
         public int PhysicianId { get; set; }
         public int ProcedureId { get; set; }
         public string PhysicianLastName { get; set; }
-        public string PhysicianFirstName { get; set; }
         public string ProcedureName { get; set; }
+
     }
 }
