@@ -19,6 +19,12 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ProcedureId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MedicationId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmentId)
         </th>*@
         <th>
             @Html.DisplayNameFor(model => model.PhysicianLastName)
@@ -26,6 +32,21 @@
         <th>
             @Html.DisplayNameFor(model => model.ProcedureName)
         </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.ProcedureNote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProcedureRoute)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MedicationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreferenceNote)
+        </th>*@
         <th></th>
     </tr>
 
@@ -39,6 +60,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ProcedureId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicationId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EquipmentId)
         </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.PhysicianLastName)
@@ -46,8 +73,23 @@
         <td>
             @Html.DisplayFor(modelItem => item.ProcedureName)
         </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.ProcedureNote)
+        </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.PhysicianPreferenceId }) |
+            @Html.DisplayFor(modelItem => item.ProcedureRoute)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EquipmentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreferenceNote)
+        </td>*@
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.PhysicianPreferenceId }) |*@
             @Html.ActionLink("Details", "Details", new { id = item.PhysicianPreferenceId }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.PhysicianPreferenceId })
         </td>

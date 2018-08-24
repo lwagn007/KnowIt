@@ -24,9 +24,13 @@ namespace KnowIt.WebMVC.Controllers
         {
             var physicianService = CreatePhysicianService();
             var procedureService = CreateProcedureService();
+            var medicationService = CreateMedicationService();
+            var equipmentService = CreateEquipmentService();
 
             ViewBag.PhysicianID = new SelectList(physicianService.GetPhysicians(), "PhysicianID", "PhysicianLastName");
             ViewBag.ProcedureID = new SelectList(procedureService.GetProcedures(), "ProcedureID", "ProcedureName");
+            ViewBag.MedicationID = new SelectList(medicationService.GetMedications(), "MedicationID", "MedicationName");
+            ViewBag.EquipmentID = new SelectList(equipmentService.GetEquipments(), "EquipmentID", "EquipmentName");
             return View();
         }
 
@@ -39,12 +43,18 @@ namespace KnowIt.WebMVC.Controllers
             var service = CreatePhysicianPreferenceService();
             var physicianService = CreatePhysicianService();
             var procedureService = CreateProcedureService();
+            var medicationService = CreateMedicationService();
+            var equipmentService = CreateEquipmentService();
 
             physicianService.GetPhysicianById(model.PhysicianId);
             procedureService.GetProcedureById(model.ProcedureId);
+            medicationService.GetMedicationById(model.MedicationId);
+            equipmentService.GetEquipmentById(model.EquipmentId);
 
             ViewBag.PhysicianID = new SelectList(physicianService.GetPhysicians(), "PhysicianID", "PhysicianLastName", model.PhysicianId);
             ViewBag.ProcedureID = new SelectList(procedureService.GetProcedures(), "ProcedureID", "ProcedureName", model.ProcedureId);
+            ViewBag.MedicationID = new SelectList(medicationService.GetMedications(), "MedicationID", "MedicationName", model.MedicationId);
+            ViewBag.EquipmentID = new SelectList(equipmentService.GetEquipments(), "EquipmentID", "EquipmentName", model.EquipmentId);
 
             if (service.CreatePhysicianPreference(model))
             {
@@ -73,15 +83,20 @@ namespace KnowIt.WebMVC.Controllers
             var model =
                 new PhysicianPreferenceEdit
                 {
-                    PhysicianPreferenceId = detail.PhysicianPreferenceId,
-                    PhysicianId = detail.PhysicianId,
-                    ProcedureId = detail.ProcedureId,
+                    //PhysicianPreferenceId = detail.PhysicianPreferenceId,
+                    //PhysicianId = detail.PhysicianId,
+                    //ProcedureId = detail.ProcedureId,
+                    //MedicationId = detail.MedicationId,
+                    //EquipmentId = detail.EquipmentId,
                     PhysicianFirstName = detail.PhysicianFirstName,
                     PhysicianLastName = detail.PhysicianLastName,
                     Specialty = detail.Specialty,
                     ProcedureName = detail.ProcedureName,
                     ProcedureNote = detail.ProcedureNote,
-                    ProcedureRoute = detail.ProcedureRoute
+                    ProcedureRoute = detail.ProcedureRoute,
+                    MedicationName = detail.MedicationName,
+                    EquipmentName = detail.EquipmentName,
+                    PreferenceNote = detail.PreferenceNote
                 };
             return View(model);
         }
@@ -143,6 +158,20 @@ namespace KnowIt.WebMVC.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new PhysicianService(userId);
+            return service;
+        }
+
+        private MedicationService CreateMedicationService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new MedicationService(userId);
+            return service;
+        }
+        
+        private EquipmentService CreateEquipmentService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new EquipmentService(userId);
             return service;
         }
 

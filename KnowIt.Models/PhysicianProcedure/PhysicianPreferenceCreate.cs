@@ -13,5 +13,6 @@ namespace KnowIt.Models.PhysicianProcedure
         public int ProcedureId { get; set; }
         public int MedicationId { get; set; }
         public int EquipmentId { get; set; }
+        public string PreferenceNote { get; set; }
     }
 }

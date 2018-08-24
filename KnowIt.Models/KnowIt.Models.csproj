@@ -69,10 +69,6 @@
     <Compile Include="Equipment\EquipmentDetail.cs" />
     <Compile Include="Equipment\EquipmentEdit.cs" />
     <Compile Include="Equipment\EquipmentListItem.cs" />
-    <Compile Include="MashUp\MashUpCreate.cs" />
-    <Compile Include="MashUp\MashUpDetail.cs" />
-    <Compile Include="MashUp\MashUpEdit.cs" />
-    <Compile Include="MashUp\MashUpListItem.cs" />
     <Compile Include="Medication\MedicationCreate.cs" />
     <Compile Include="Medication\MedicationDetail.cs" />
     <Compile Include="Medication\MedicationEdit.cs" />

@@ -14,6 +14,7 @@ namespace KnowIt.Data
         public int ProcedureID { get; set; }
         public int MedicationID { get; set; }
         public int EquipmentID { get; set; }
+        public string PreferenceNote { get; set; }
 
         public virtual Physician Physician { get; set; }
         public virtual Procedure Procedure { get; set; }

@@ -25,6 +25,9 @@ namespace KnowIt.Services
                     OwnerID = _userId,
                     PhysicianID = model.PhysicianId,
                     ProcedureID = model.ProcedureId,
+                    MedicationID = model.MedicationId,
+                    EquipmentID = model.EquipmentId,
+                    PreferenceNote = model.PreferenceNote
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -48,9 +51,15 @@ namespace KnowIt.Services
                             PhysicianPreferenceId = e.PhysicianPreferenceID,
                             PhysicianId = e.Physician.PhysicianID,
                             ProcedureId = e.Procedure.ProcedureID,
+                            MedicationId = e.Medication.MedicationID,
+                            EquipmentId = e.Equipment.EquipmentID,
                             PhysicianLastName = e.Physician.PhysicianLastName,
                             ProcedureName = e.Procedure.ProcedureName,
+                            ProcedureRoute = e.Procedure.ProcedureRoute,
                             ProcedureNote = e.Procedure.ProcedureNote,
+                            MedicationName = e.Medication.MedicationName,
+                            EquipmentName = e.Equipment.EquipmentName,
+                            PreferenceNote = e.PreferenceNote
                         }
                       );
                 return query.ToArray();
@@ -71,12 +80,17 @@ namespace KnowIt.Services
                         PhysicianPreferenceId = entity.PhysicianPreferenceID,
                         PhysicianId = entity.Physician.PhysicianID,
                         ProcedureId = entity.Procedure.ProcedureID,
+                        MedicationId = entity.Medication.MedicationID,
+                        EquipmentId = entity.Equipment.EquipmentID,
                         PhysicianLastName = entity.Physician.PhysicianLastName,
                         PhysicianFirstName = entity.Physician.PhysicianFirstName,
                         Specialty = entity.Physician.Specialty,
                         ProcedureName = entity.Procedure.ProcedureName,
                         ProcedureNote = entity.Procedure.ProcedureNote,
-                        ProcedureRoute = entity.Procedure.ProcedureRoute
+                        ProcedureRoute = entity.Procedure.ProcedureRoute,
+                        MedicationName = entity.Medication.MedicationName,
+                        EquipmentName = entity.Equipment.EquipmentName,
+                        PreferenceNote = entity.PreferenceNote
                     };
             }
         }
@@ -96,6 +110,9 @@ namespace KnowIt.Services
                 entity.Procedure.ProcedureName = model.ProcedureName;
                 entity.Procedure.ProcedureNote = model.ProcedureNote;
                 entity.Procedure.ProcedureRoute = model.ProcedureRoute;
+                entity.Medication.MedicationName = model.MedicationName;
+                entity.Equipment.EquipmentName = model.EquipmentName;
+                entity.PreferenceNote = model.PreferenceNote;
 
                 return ctx.SaveChanges() == 1;
             }

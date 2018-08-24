@@ -21,5 +21,6 @@ namespace KnowIt.Models.PhysicianProcedure
         public string ProcedureRoute { get; set; }
         public string MedicationName { get; set; }
         public string EquipmentName { get; set; }
+        public string PreferenceNote { get; set; }
     }
 }

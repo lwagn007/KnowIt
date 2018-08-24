@@ -112,6 +112,10 @@
     <Compile Include="Migrations\201808222048259_update1.Designer.cs">
       <DependentUpon>201808222048259_update1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808231543293_fullphysicianpreferencecrud.cs" />
+    <Compile Include="Migrations\201808231543293_fullphysicianpreferencecrud.Designer.cs">
+      <DependentUpon>201808231543293_fullphysicianpreferencecrud.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Physician.cs" />
     <Compile Include="IdentityModels.cs" />
@@ -156,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808222048259_update1.resx">
       <DependentUpon>201808222048259_update1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808231543293_fullphysicianpreferencecrud.resx">
+      <DependentUpon>201808231543293_fullphysicianpreferencecrud.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
