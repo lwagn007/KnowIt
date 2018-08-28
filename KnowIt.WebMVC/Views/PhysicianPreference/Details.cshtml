@@ -4,127 +4,80 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>PhysicianPreferenceDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        @*<dt>
-            @Html.DisplayNameFor(model => model.PhysicianPreferenceId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhysicianPreferenceId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhysicianId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhysicianId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProcedureId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProcedureId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MedicationId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MedicationId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentId)
-        </dd>*@
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhysicianLastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhysicianLastName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhysicianFirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhysicianFirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Specialty)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Specialty)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProcedureName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProcedureName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProcedureNote)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProcedureNote)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProcedureRoute)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProcedureRoute)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MedicationName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MedicationName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PreferenceNote)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PreferenceNote)
-        </dd>
-
-    </dl>
+<div class="panel panelsize">
+    <div class="tablespace">
+        <h2>Physician Preference Detail</h2>
+        <p>
+            @*@Html.ActionLink("Edit", "Edit", new { id = Model.PhysicianPreferenceId }) |*@
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+        <hr />
+        <div class="panel panel-body panel-info">
+            <dl class="dl-horizontal ">
+                <dt>
+                    Physician Last Name:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PhysicianLastName)
+                </dd>
+                <br />
+                <dt>
+                    Physician First Name:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PhysicianFirstName)
+                </dd>
+                <br />
+                <dt>
+                    Specialty:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Specialty)
+                </dd>
+                <br />
+                <dt>
+                    Procedure Name:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProcedureName)
+                </dd>
+                <br />
+                <dt>
+                    Procedure Notes:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProcedureNote)
+                </dd>
+                <br />
+                <dt>
+                    Procedure Route:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProcedureRoute)
+                </dd>
+                <br />
+                <dt>
+                    Medication:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MedicationName)
+                </dd>
+                <br />
+                <dt>
+                    Equipment:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EquipmentName)
+                </dd>
+                <br />
+                <dt>
+                    Physician Preference Notes:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PreferenceNote)
+                </dd>
+            </dl>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PhysicianPreferenceId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

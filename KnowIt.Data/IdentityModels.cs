@@ -37,7 +37,6 @@ namespace KnowIt.Data
         public DbSet<Physician> Physicians { get; set; }
         public DbSet<Procedure> Procedures { get; set; }
         public DbSet<PhysicianPreference> PhysicianPreferences { get; set; }
-        public DbSet<MashUp> MashUps { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -49,6 +48,14 @@ namespace KnowIt.Data
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
+
+            // attempting to create many to many relationship. On hold for UI
+            //modelBuilder.Entity<Medication>()
+            //    .HasMany(m => m.Physicians).WithMany(p => p.Medications)
+            //    .Map(t => t.MapLeftKey("MedicationID"))
+            //        .MapRightKey("PhysicianID")
+            //        .ToTable("MedicationPhysician");
+           
         }
     }
 

@@ -20,5 +20,8 @@ namespace KnowIt.Data
         public virtual Procedure Procedure { get; set; }
         public virtual Medication Medication { get; set; }
         public virtual Equipment Equipment { get; set; }
+        //Attempting to make Many to many relationship.On hold to do UI
+        //public virtual ICollection<Medication> Medication { get; set; }
+        //public virtual ICollection<Equipment> Equipment { get; set; }
     }
 }

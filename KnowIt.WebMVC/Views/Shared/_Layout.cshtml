@@ -3,13 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title KnowIT</title>
+    <title>@ViewBag.Title KnowIt</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/Site.css")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -17,28 +18,38 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("KnowIT", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*@Html.ActionLink("KnowIT", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    @if (User.Identity.IsAuthenticated)
+                     {
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Physician", "Index", "Physician")</li>
-                    <li>@Html.ActionLink("Procedure", "Index", "Procedure")</li>
-                    <li>@Html.ActionLink("Medication", "Index", "Medication")</li>
-                    <li>@Html.ActionLink("Equipment", "Index", "Equipment")</li>
-                    <li>@Html.ActionLink("PhysicianPreference", "Index", "PhysicianPreference")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">KnowIT &raquo;</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">@Html.ActionLink("Physician", "Index", "Physician")</a></li>
+                            <li><a href="#">@Html.ActionLink("Procedure", "Index", "Procedure")</a></li>
+                            <li><a href="#">@Html.ActionLink("Medication", "Index", "Medication")</a></li>
+                            <li><a href="#">@Html.ActionLink("Equipment", "Index", "Equipment")</a></li>
+                            <li><a href="#">@Html.ActionLink("Physician Preference", "Index", "PhysicianPreference")</a></li>
+                        </ul>
+                    </li>
+                    @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                     }
                 </ul>
+                     
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container space">
         @RenderBody()
-        <hr />
+    </div>
+    <div class="body-content navbar-fixed-bottom">
         <footer>
-            <p>&copy; @DateTime.Now.Year - KnowIT</p>
+            <p>&copy; @DateTime.Now.Year - KnowIt</p>
         </footer>
     </div>
 

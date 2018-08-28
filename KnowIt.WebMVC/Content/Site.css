@@ -1,6 +1,55 @@
-﻿body {
+﻿html{
+    height: 100%;
+}
+
+body{
     padding-top: 50px;
     padding-bottom: 20px;
+    height: 90vh;
+    background-image: url(assets/sci-fi-2992797_1920.jpg);
+    overflow: hidden;
+}
+
+navbar{
+    background-color: ghostwhite;
+}
+
+div {
+    border-radius: 5px;
+    /*border: 1px solid black;*/
+}
+
+.table{
+    height: 70%;
+}
+
+.panelsize {
+    height: 100%;
+    min-width: 55%;
+    margin: auto;
+    background-color: ghostwhite;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.panel-body {
+    background: #D9EDF7;
+    overflow: auto;
+}
+
+
+.tablespace{
+    width: 75%;
+    height: 100%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.space {
+    margin-top: 50px;
+    margin-bottom: 15px;
+    min-width: 75%;
+    height: 100%;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -16,9 +65,14 @@
     white-space: normal;
 }
 
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
     max-width: 280px;
+}
+
+footer{
+    color: black;
 }

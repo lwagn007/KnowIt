@@ -10,6 +10,7 @@ namespace KnowIt.Services
 {
     public class PhysicianPreferenceService
     {
+        ApplicationDbContext db = new ApplicationDbContext();
         private readonly Guid _userId;
 
         public PhysicianPreferenceService(Guid userId)
@@ -131,5 +132,37 @@ namespace KnowIt.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        //Attempting to create many to many relationship. On Hold to do UI
+        //private void AddMultipleMedications(string[] selectedMedications, PhysicianPreference physicianPreferenceToUpdate)
+        //{
+
+        //    if (selectedMedications == null)
+        //    {
+        //        physicianPreferenceToUpdate.Medication = new List<Medication>();
+        //        return;
+        //    }
+
+        //    var selectedMedication = new HashSet<string>(selectedMedications);
+        //    var physicianMedications = new HashSet<int>
+        //        (physicianPreferenceToUpdate.Medication.Select(m => m.MedicationID));
+        //    foreach (var medication in db.Medications)
+        //    {
+        //        if (selectedMedications.Contains(medication.MedicationID.ToString()))
+        //        {
+        //            if(!physicianMedications.Contains(medication.MedicationID))
+        //            {
+        //                physicianPreferenceToUpdate.Medication.Add(medication);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            if (physicianMedications.Contains(medication.MedicationID))
+        //            {
+        //                physicianPreferenceToUpdate.Medication.Remove(medication);
+        //            }
+        //        }
+        //    }
+        //}
     }
 }

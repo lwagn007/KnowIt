@@ -3,97 +3,43 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="panel panelsize">
+    <div class="tablespace">
+        <h2><b>Physician Preference Library</b></h2>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <hr/>
 
-<h2>Index</h2>
+        <table class="table table-responsive table-hover smallborder">
+            <thead class="bg-primary">
+                <tr>
+                    <th>
+                        Physician Last Name
+                    </th>
+                    <th>
+                        Procedure
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        @*<th>
-            @Html.DisplayNameFor(model => model.PhysicianPreferenceId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhysicianId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProcedureId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MedicationId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EquipmentId)
-        </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.PhysicianLastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProcedureName)
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.ProcedureNote)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProcedureRoute)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MedicationName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EquipmentName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PreferenceNote)
-        </th>*@
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.PhysicianPreferenceId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhysicianId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProcedureId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MedicationId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EquipmentId)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.PhysicianLastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProcedureName)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.ProcedureNote)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProcedureRoute)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MedicationName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EquipmentName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PreferenceNote)
-        </td>*@
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", new { id = item.PhysicianPreferenceId }) |*@
-            @Html.ActionLink("Details", "Details", new { id = item.PhysicianPreferenceId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.PhysicianPreferenceId })
-        </td>
-    </tr>
-}
-
-</table>
+            @foreach (var item in Model)
+            {
+                <tr class="info">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhysicianLastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProcedureName)
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.PhysicianPreferenceId }) |*@
+                        @Html.ActionLink("Details", "Details", new { id = item.PhysicianPreferenceId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PhysicianPreferenceId })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
