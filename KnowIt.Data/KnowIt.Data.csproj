@@ -123,6 +123,18 @@
     <Compile Include="Migrations\201808261612445_update3.Designer.cs">
       <DependentUpon>201808261612445_update3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808282004092_updating.cs" />
+    <Compile Include="Migrations\201808282004092_updating.Designer.cs">
+      <DependentUpon>201808282004092_updating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808282036068_tryingtoaddmultiples.cs" />
+    <Compile Include="Migrations\201808282036068_tryingtoaddmultiples.Designer.cs">
+      <DependentUpon>201808282036068_tryingtoaddmultiples.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808282049519_tryingtoaddmultiple2.cs" />
+    <Compile Include="Migrations\201808282049519_tryingtoaddmultiple2.Designer.cs">
+      <DependentUpon>201808282049519_tryingtoaddmultiple2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Physician.cs" />
     <Compile Include="IdentityModels.cs" />
@@ -176,6 +188,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808261612445_update3.resx">
       <DependentUpon>201808261612445_update3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808282004092_updating.resx">
+      <DependentUpon>201808282004092_updating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808282036068_tryingtoaddmultiples.resx">
+      <DependentUpon>201808282036068_tryingtoaddmultiples.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808282049519_tryingtoaddmultiple2.resx">
+      <DependentUpon>201808282049519_tryingtoaddmultiple2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

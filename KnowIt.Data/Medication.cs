@@ -13,5 +13,6 @@ namespace KnowIt.Data
         public string MedicationName { get; set; }
         public string MedicationClass { get; set; }
         public string MedicationUse { get; set; }
+        public bool Assigned { get; set; }
     }
 }

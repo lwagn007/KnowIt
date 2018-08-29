@@ -4,48 +4,48 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="panel panelsize">
+    <div class="tablespace">
+        <h2>Medication Library</h2>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table table-responsive table-hover">
+            <thead class="bg-primary">
+                <tr>
+                    <th>
+                        Medication Name
+                    </th>
+                    <th>
+                        Medication Class
+                    </th>
+                    <th>
+                        Medication Use
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MedicationId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MedicationName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MedicationClass)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MedicationUse)
-        </th>
-        <th></th>
-    </tr>
+            @foreach (var item in Model)
+            {
+                <tr class="info">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MedicationName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MedicationClass)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MedicationUse)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.MedicationId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.MedicationId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.MedicationId })
+                    </td>
+                </tr>
+            }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MedicationId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MedicationName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MedicationClass)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MedicationUse)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.MedicationId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.MedicationId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.MedicationId })
-        </td>
-    </tr>
-}
-
-</table>
+        </table>
+    </div>
+</div>

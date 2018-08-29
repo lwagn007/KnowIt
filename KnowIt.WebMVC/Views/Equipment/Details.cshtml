@@ -4,39 +4,33 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>EquipmentDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentId)
-        </dt>
+<div class="panel panelsize" style="overflow:hidden">
+    <div class="tablespace">
+        <h2>Equipment Details</h2>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id= Model.EquipmentId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+        <hr />
+        <div class="panel panel-body panel-info">
+            <dl class="dl-horizontal">
+                <dt>
+                    Equipment Name:
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentId)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.EquipmentName)
+                </dd>
+                <br/>
+                <dt>
+                    Equipment Note:
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentNote)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentNote)
-        </dd>
-
-    </dl>
+                <dd>
+                    @Html.DisplayFor(model => model.EquipmentNote)
+                </dd>
+            </dl>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

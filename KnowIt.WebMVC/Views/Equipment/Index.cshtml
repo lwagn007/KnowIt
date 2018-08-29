@@ -3,44 +3,42 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="panel panelsize">
+    <div class="tablespace">
+        <h2>Equipment Library</h2>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <hr/>
+        <table class="table table-responsive table-hover">
+            <thead class="bg-primary">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EquipmentName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EquipmentNote)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr class="info">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EquipmentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EquipmentNote)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.EquipmentId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.EquipmentId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.EquipmentId })
+                    </td>
+                </tr>
+            }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        @*//TODO: Id's do not need to be included so you can hide those in the view*@
-        <th>
-            @Html.DisplayNameFor(model => model.EquipmentId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EquipmentName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EquipmentNote)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EquipmentId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EquipmentName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EquipmentNote)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.EquipmentId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.EquipmentId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.EquipmentId })
-        </td>
-    </tr>
-}
-
-</table>
+        </table>
+    </div>
+</div>

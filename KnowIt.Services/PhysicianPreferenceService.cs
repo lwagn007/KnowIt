@@ -18,7 +18,7 @@ namespace KnowIt.Services
             _userId = userId;
         }
 
-        public bool CreatePhysicianPreference(PhysicianPreferenceCreate model)
+        public bool CreatePhysicianPreference(PhysicianPreferenceCreate model, PhysicianPreference physician, string[]selectedMedications)
         {
             var entity =
                 new PhysicianPreference()
@@ -30,7 +30,15 @@ namespace KnowIt.Services
                     EquipmentID = model.EquipmentId,
                     PreferenceNote = model.PreferenceNote
                 };
-
+            if(selectedMedications !=null)
+            {
+                physician.Medications = new List<Medication>();
+                foreach (var medication in selectedMedications)
+                {
+                    var medicationToAdd = db.Medications.Find(int.Parse(medication));
+                    physician.Medications.Add(medicationToAdd);
+                }
+            }
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.PhysicianPreferences.Add(entity);

@@ -4,47 +4,41 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="panel panelsize" style="overflow:hidden">
+    <div class="tablespace">
+        <h2>Procedure Detail</h2>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ProcedureId }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        <hr />
+        <div class="panel panel-body panel-info">
+            <dl class="dl-horizontal">
+                <dt>
+                    Procedure Name:
+                </dt>
 
-<div>
-    <h4>ProcedureDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ProcedureId)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProcedureName)
+                </dd>
+                <br />
+                <dt>
+                    Procedure Note:
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProcedureId)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.ProcedureNote)
+                </dd>
+                <br />
+                <dt>
+                    Procedure Route:
+                </dt>
 
-        @*<dt>
-            @Html.DisplayNameFor(model => model.ProcedureName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProcedureRoute)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProcedureName)
-        </dd>*@
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProcedureNote)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProcedureNote)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProcedureRoute)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProcedureRoute)
-        </dd>
-
-    </dl>
+            </dl>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

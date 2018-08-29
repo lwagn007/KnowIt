@@ -81,9 +81,9 @@ namespace KnowIt.Services
                         .Equipments
                         .Single(e => e.EquipmentID == model.EquipmentId && e.OwnerID == _userId);
 
-                entity.EquipmentName = model.EquipmentName;
-                entity.EquipmentNote = model.EquipmentNote;
-
+                    entity.EquipmentName = model.EquipmentName;
+                    entity.EquipmentNote = model.EquipmentNote;
+                
                 return ctx.SaveChanges() == 1;
             }
         }
