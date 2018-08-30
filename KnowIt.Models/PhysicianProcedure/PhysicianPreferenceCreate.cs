@@ -11,15 +11,13 @@ namespace KnowIt.Models.PhysicianProcedure
     {
         public int PhysicianId { get; set; }
         public int ProcedureId { get; set; }
-        public int MedicationId { get; set; }
         public int EquipmentId { get; set; }
         public string PreferenceNote { get; set; }
-        public bool Assigned { get; set; }
-        public string MedicationName { get; set; }
-        public string EquipmentName { get; set; }
 
-        public virtual ICollection<Data.Medication> Medications { get; set; }
-        public virtual ICollection<Data.Equipment> Equipments { get; set; }
-        public virtual ICollection<PhysicianPreference> PhysicianPreferences { get; set; }
+        //public bool Assigned { get; set; }
+
+        //public virtual ICollection<Data.Medication> Medications { get; set; }
+        //public virtual ICollection<Data.Equipment> Equipments { get; set; }
+        //public virtual ICollection<PhysicianPreference> PhysicianPreferences { get; set; }
     }
 }

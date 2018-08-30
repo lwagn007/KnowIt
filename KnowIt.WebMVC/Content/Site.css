@@ -1,33 +1,40 @@
-﻿html{
+﻿html {
     height: 100%;
 }
 
-body{
-    background-image: url(assets/sci-fi-2992797_1920.jpg);
-    background-position:center;
+body {
+    background-image: url(assets/aerial-aerial-view-application-935869.jpg);
+    background-position: center;
     padding-top: 50px;
     padding-bottom: 20px;
     height: 90vh;
     overflow: hidden auto;
 }
 
-navbar{
-    background-color: ghostwhite;
+.text {
+    text-align: center;
+}
+
+.navbar {
+    background: #FFFFFF;
 }
 
 div {
     border-radius: 5px;
 }
 
-.table{
+.table {
     height: 70%;
+}
+
+.panel-transparent {
+    background-color: rgba(255,255,255, 0);
 }
 
 .panelsize {
     height: 100%;
     min-width: 55%;
     margin: auto;
-    background-color: ghostwhite;
     border-radius: 5px;
     overflow: hidden auto;
 }
@@ -38,18 +45,19 @@ div {
 }
 
 
-.tablespace{
+.tablespace {
     width: 75%;
     height: 100%;
     margin: auto;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .space {
-    margin-top: 50px;
-    margin-bottom: 15px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     min-width: 75%;
-    height: 100%;
+    height: 80%;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -75,6 +83,6 @@ textarea {
     max-width: 280px;
 }
 
-footer{
+footer {
     color: black;
 }

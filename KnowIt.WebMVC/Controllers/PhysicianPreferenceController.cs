@@ -56,13 +56,13 @@ namespace KnowIt.WebMVC.Controllers
 
             ViewBag.MedicationId = new SelectList(medications, "MedicationId", "MedicationName");
 
-            //var medication = new AllMedications();
-            //medication.Medications = new List<Medication>();
-            //PopulateAssignedMedicationData(physicianPreference);
+            var medication = new AllMedicationCreate();
+            medication.Medications = new List<AllMedicationCreate>();
+            PopulateAssignedMedicationData(medication);
             return View();
         }
 
-        private void PopulateAssignedMedicationData(PhysicianPreference physician)
+        private void PopulateAssignedMedicationData(AllMedicationCreate allMedication)
         {
             var medService = CreateMedicationService();
             var allMeds = medService.GetMedications();
@@ -83,31 +83,13 @@ namespace KnowIt.WebMVC.Controllers
 
         }
 
-
-
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PhysicianPreferenceCreate model, PhysicianPreference physician, string[] selectedMedications)
+        public ActionResult Create(PhysicianPreferenceCreate model)
         {
             if (!ModelState.IsValid) return View(model);
 
             var service = CreatePhysicianPreferenceService();
-            //var physicianService = CreatePhysicianService();
-            //var procedureService = CreateProcedureService();
-            //var medicationService = CreateMedicationService();
-            //var equipmentService = CreateEquipmentService();
-
-            //physicianService.GetPhysicianById(model.PhysicianId);
-            //procedureService.GetProcedureById(model.ProcedureId);
-            //medicationService.GetMedicationById(model.MedicationId);
-            //equipmentService.GetEquipmentById(model.EquipmentId);
-
-            //ViewBag.PhysicianID = new SelectList(physicianService.GetPhysicians(), "PhysicianID", "PhysicianLastName", model.PhysicianId);
-            //ViewBag.ProcedureID = new SelectList(procedureService.GetProcedures(), "ProcedureID", "ProcedureName", model.ProcedureId);
-            //ViewBag.MedicationID = new SelectList(medicationService.GetMedications(), "MedicationID", "MedicationName", model.MedicationId);
-            //ViewBag.EquipmentID = new SelectList(equipmentService.GetEquipments(), "EquipmentID", "EquipmentName", model.EquipmentId);
 
             if (service.CreatePhysicianPreference(model))
             {

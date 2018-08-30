@@ -4,43 +4,44 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title KnowIt</title>
-    @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Content/fontawesome/fontawesome.css")
+    @Styles.Render("~/https://fonts.googleapis.com/css?family=Fira+Sans")
+    @Styles.Render("~/Content/fontawesome")
+    @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/Site.css")
-
 </head>
 <body>
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @*@Html.ActionLink("KnowIT", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @if (User.Identity.IsAuthenticated)
-                     {
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">KnowIT &raquo;</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">@Html.ActionLink("Physician", "Index", "Physician")</a></li>
-                            <li><a href="#">@Html.ActionLink("Procedure", "Index", "Procedure")</a></li>
-                            <li><a href="#">@Html.ActionLink("Medication", "Index", "Medication")</a></li>
-                            <li><a href="#">@Html.ActionLink("Equipment", "Index", "Equipment")</a></li>
-                            <li><a href="#">@Html.ActionLink("Physician Preference", "Index", "PhysicianPreference")</a></li>
-                        </ul>
-                    </li>
-                    @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-                     }
-                </ul>
-                     
-                @Html.Partial("_LoginPartial")
+    <div class="container">
+        <div class="navbar navbar-default col-md-12">
+            <div class="container col-md-12">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">KnowIT &raquo;</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">@Html.ActionLink("Physician", "Index", "Physician")</a></li>
+                                    <li><a href="#">@Html.ActionLink("Procedure", "Index", "Procedure")</a></li>
+                                    <li><a href="#">@Html.ActionLink("Medication", "Index", "Medication")</a></li>
+                                    <li><a href="#">@Html.ActionLink("Equipment", "Index", "Equipment")</a></li>
+                                    <li><a href="#">@Html.ActionLink("Physician Preference", "Index", "PhysicianPreference")</a></li>
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
         </div>
     </div>

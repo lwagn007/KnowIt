@@ -15,16 +15,9 @@ namespace KnowIt.Data
         public int MedicationID { get; set; }
         public int EquipmentID { get; set; }
         public string PreferenceNote { get; set; }
-        public string MedicationName { get; set; }
-
         public virtual Physician Physician { get; set; }
         public virtual Procedure Procedure { get; set; }
         public virtual Medication Medication { get; set; }
         public virtual Equipment Equipment { get; set; }
-        //Attempting to make Many to many relationship.On hold to do UI
-        public bool Assigned { get; set; }
-        public virtual ICollection<Medication> Medications { get; set; }
-        public virtual ICollection<Equipment> Equipments { get; set; }
-        public virtual ICollection<PhysicianPreference> PhysicianPreferences { get; set; }
     }
 }

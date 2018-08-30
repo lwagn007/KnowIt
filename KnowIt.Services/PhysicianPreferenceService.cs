@@ -27,8 +27,8 @@ namespace KnowIt.Services
                     OwnerID = _userId,
                     PhysicianID = model.PhysicianId,
                     ProcedureID = model.ProcedureId,
-                    MedicationID = model.MedicationId,
                     EquipmentID = model.EquipmentId,
+                    Medications = model.Medications,
                     PreferenceNote = model.PreferenceNote
                 };
             
@@ -43,6 +43,7 @@ namespace KnowIt.Services
 
         public IEnumerable<PhysicianPreferenceListItem> GetPhysicianPreferences()
         {
+            System.Diagnostics.Debugger.NotifyOfCrossThreadDependency();
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
@@ -57,13 +58,7 @@ namespace KnowIt.Services
                             ProcedureId = e.Procedure.ProcedureID,
                             MedicationId = e.Medication.MedicationID,
                             EquipmentId = e.Equipment.EquipmentID,
-                            PhysicianLastName = e.Physician.PhysicianLastName,
-                            ProcedureName = e.Procedure.ProcedureName,
-                            ProcedureRoute = e.Procedure.ProcedureRoute,
-                            ProcedureNote = e.Procedure.ProcedureNote,
-                            MedicationName = e.Medication.MedicationName,
-                            EquipmentName = e.Equipment.EquipmentName,
-                            PreferenceNote = e.PreferenceNote
+
                         }
                       );
                 return query.ToArray();

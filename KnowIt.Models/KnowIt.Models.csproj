@@ -73,6 +73,7 @@
     <Compile Include="Medication\MedicationDetail.cs" />
     <Compile Include="Medication\MedicationEdit.cs" />
     <Compile Include="Medication\MedicationListItem.cs" />
+    <Compile Include="PhysicianProcedure\AllMedicationCreate.cs" />
     <Compile Include="PhysicianProcedure\PhysicianPreferenceCreate.cs" />
     <Compile Include="PhysicianProcedure\PhysicianPreferenceDetail.cs" />
     <Compile Include="PhysicianProcedure\PhysicianPreferenceEdit.cs" />
