@@ -20,19 +20,19 @@ namespace KnowIt.WebMVC.Controllers
             PhysicianPreferenceService service = NewMethod();
             var model = service.GetPhysicianPreferences();
             
-            if(id != null)
-            {
-                ViewBag.MedicationId = id.Value;
-                viewModel.Medications = viewModel.PhysicianPreferences.Where(
-                    p => p.PhysicianPreferenceID == id.Value).Single().Medications;
-            }
+            //if(id != null)
+            //{
+            //    ViewBag.MedicationId = id.Value;
+            //    viewModel.Medications = viewModel.PhysicianPreferences.Where(
+            //        p => p.PhysicianPreferenceID == id.Value).Single().Medications;
+            //}
 
-            if(medicationId != null)
-            {
-                ViewBag.MedicationID = id.Value;
-                viewModel.Medications = viewModel.PhysicianPreferences.Where(
-                    p => p.PhysicianPreferenceID == id.Value).Single().Medications;
-            }
+            //if(medicationId != null)
+            //{
+            //    ViewBag.MedicationID = id.Value;
+            //    viewModel.Medications = viewModel.PhysicianPreferences.Where(
+            //        p => p.PhysicianPreferenceID == id.Value).Single().Medications;
+            //}
 
             return View(model);
         }
@@ -53,12 +53,11 @@ namespace KnowIt.WebMVC.Controllers
             ViewBag.PhysicianID = new SelectList(physicians, "PhysicianID", "PhysicianLastName");
             ViewBag.ProcedureID = new SelectList(procedures, "ProcedureID", "ProcedureName");
             ViewBag.EquipmentID = new SelectList(equipments, "EquipmentID", "EquipmentName");
-
             ViewBag.MedicationId = new SelectList(medications, "MedicationId", "MedicationName");
 
-            var medication = new AllMedicationCreate();
-            medication.Medications = new List<AllMedicationCreate>();
-            PopulateAssignedMedicationData(medication);
+            //var medication = new AllMedicationCreate();
+            //medication.Medications = new List<AllMedicationCreate>();
+            //PopulateAssignedMedicationData(medication);
             return View();
         }
 

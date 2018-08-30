@@ -10,7 +10,6 @@ namespace KnowIt.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "KnowIt.Data.ApplicationDbContext";
         }
 
         protected override void Seed(KnowIt.Data.ApplicationDbContext context)

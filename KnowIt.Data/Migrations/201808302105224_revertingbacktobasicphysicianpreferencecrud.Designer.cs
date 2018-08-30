@@ -7,13 +7,13 @@ namespace KnowIt.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class physicianfk : IMigrationMetadata
+    public sealed partial class revertingbacktobasicphysicianpreferencecrud : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(physicianfk));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(revertingbacktobasicphysicianpreferencecrud));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808211810511_physicianfk"; }
+            get { return "201808302105224_revertingbacktobasicphysicianpreferencecrud"; }
         }
         
         string IMigrationMetadata.Source

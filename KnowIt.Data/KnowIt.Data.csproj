@@ -67,81 +67,9 @@
   <ItemGroup>
     <Compile Include="Equipment.cs" />
     <Compile Include="Medication.cs" />
-    <Compile Include="Migrations\201808161730391_InitialCreate.cs" />
-    <Compile Include="Migrations\201808161730391_InitialCreate.Designer.cs">
-      <DependentUpon>201808161730391_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808161943271_initialupdatephysiciancrud.cs" />
-    <Compile Include="Migrations\201808161943271_initialupdatephysiciancrud.Designer.cs">
-      <DependentUpon>201808161943271_initialupdatephysiciancrud.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808171427156_secondmigrationprocedurecrud.cs" />
-    <Compile Include="Migrations\201808171427156_secondmigrationprocedurecrud.Designer.cs">
-      <DependentUpon>201808171427156_secondmigrationprocedurecrud.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808181414428_updatedatabase.cs" />
-    <Compile Include="Migrations\201808181414428_updatedatabase.Designer.cs">
-      <DependentUpon>201808181414428_updatedatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808192239029_medicationcrud.cs" />
-    <Compile Include="Migrations\201808192239029_medicationcrud.Designer.cs">
-      <DependentUpon>201808192239029_medicationcrud.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808192329451_equipmentcrud.cs" />
-    <Compile Include="Migrations\201808192329451_equipmentcrud.Designer.cs">
-      <DependentUpon>201808192329451_equipmentcrud.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808211733504_initialmashup.cs" />
-    <Compile Include="Migrations\201808211733504_initialmashup.Designer.cs">
-      <DependentUpon>201808211733504_initialmashup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808211810511_physicianfk.cs" />
-    <Compile Include="Migrations\201808211810511_physicianfk.Designer.cs">
-      <DependentUpon>201808211810511_physicianfk.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808221113190_physicianpreferencecrud.cs" />
-    <Compile Include="Migrations\201808221113190_physicianpreferencecrud.Designer.cs">
-      <DependentUpon>201808221113190_physicianpreferencecrud.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808221848262_update.cs" />
-    <Compile Include="Migrations\201808221848262_update.Designer.cs">
-      <DependentUpon>201808221848262_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808222048259_update1.cs" />
-    <Compile Include="Migrations\201808222048259_update1.Designer.cs">
-      <DependentUpon>201808222048259_update1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808231543293_fullphysicianpreferencecrud.cs" />
-    <Compile Include="Migrations\201808231543293_fullphysicianpreferencecrud.Designer.cs">
-      <DependentUpon>201808231543293_fullphysicianpreferencecrud.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808261610412_update2.cs" />
-    <Compile Include="Migrations\201808261610412_update2.Designer.cs">
-      <DependentUpon>201808261610412_update2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808261612445_update3.cs" />
-    <Compile Include="Migrations\201808261612445_update3.Designer.cs">
-      <DependentUpon>201808261612445_update3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808282004092_updating.cs" />
-    <Compile Include="Migrations\201808282004092_updating.Designer.cs">
-      <DependentUpon>201808282004092_updating.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808282036068_tryingtoaddmultiples.cs" />
-    <Compile Include="Migrations\201808282036068_tryingtoaddmultiples.Designer.cs">
-      <DependentUpon>201808282036068_tryingtoaddmultiples.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808282049519_tryingtoaddmultiple2.cs" />
-    <Compile Include="Migrations\201808282049519_tryingtoaddmultiple2.Designer.cs">
-      <DependentUpon>201808282049519_tryingtoaddmultiple2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808291738097_progressindexmultiplemeds.cs" />
-    <Compile Include="Migrations\201808291738097_progressindexmultiplemeds.Designer.cs">
-      <DependentUpon>201808291738097_progressindexmultiplemeds.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808291839497_stuffmultiple.cs" />
-    <Compile Include="Migrations\201808291839497_stuffmultiple.Designer.cs">
-      <DependentUpon>201808291839497_stuffmultiple.cs</DependentUpon>
+    <Compile Include="Migrations\201808302105224_revertingbacktobasicphysicianpreferencecrud.cs" />
+    <Compile Include="Migrations\201808302105224_revertingbacktobasicphysicianpreferencecrud.Designer.cs">
+      <DependentUpon>201808302105224_revertingbacktobasicphysicianpreferencecrud.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Physician.cs" />
@@ -155,62 +83,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808161730391_InitialCreate.resx">
-      <DependentUpon>201808161730391_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808161943271_initialupdatephysiciancrud.resx">
-      <DependentUpon>201808161943271_initialupdatephysiciancrud.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808171427156_secondmigrationprocedurecrud.resx">
-      <DependentUpon>201808171427156_secondmigrationprocedurecrud.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808181414428_updatedatabase.resx">
-      <DependentUpon>201808181414428_updatedatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808192239029_medicationcrud.resx">
-      <DependentUpon>201808192239029_medicationcrud.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808192329451_equipmentcrud.resx">
-      <DependentUpon>201808192329451_equipmentcrud.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808211733504_initialmashup.resx">
-      <DependentUpon>201808211733504_initialmashup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808211810511_physicianfk.resx">
-      <DependentUpon>201808211810511_physicianfk.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808221113190_physicianpreferencecrud.resx">
-      <DependentUpon>201808221113190_physicianpreferencecrud.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808221848262_update.resx">
-      <DependentUpon>201808221848262_update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808222048259_update1.resx">
-      <DependentUpon>201808222048259_update1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808231543293_fullphysicianpreferencecrud.resx">
-      <DependentUpon>201808231543293_fullphysicianpreferencecrud.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808261610412_update2.resx">
-      <DependentUpon>201808261610412_update2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808261612445_update3.resx">
-      <DependentUpon>201808261612445_update3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808282004092_updating.resx">
-      <DependentUpon>201808282004092_updating.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808282036068_tryingtoaddmultiples.resx">
-      <DependentUpon>201808282036068_tryingtoaddmultiples.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808282049519_tryingtoaddmultiple2.resx">
-      <DependentUpon>201808282049519_tryingtoaddmultiple2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808291738097_progressindexmultiplemeds.resx">
-      <DependentUpon>201808291738097_progressindexmultiplemeds.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808291839497_stuffmultiple.resx">
-      <DependentUpon>201808291839497_stuffmultiple.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808302105224_revertingbacktobasicphysicianpreferencecrud.resx">
+      <DependentUpon>201808302105224_revertingbacktobasicphysicianpreferencecrud.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

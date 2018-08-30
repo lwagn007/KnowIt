@@ -28,7 +28,7 @@ namespace KnowIt.Services
                     PhysicianID = model.PhysicianId,
                     ProcedureID = model.ProcedureId,
                     EquipmentID = model.EquipmentId,
-                    Medications = model.Medications,
+                    MedicationID = model.MedicationId,
                     PreferenceNote = model.PreferenceNote
                 };
             
