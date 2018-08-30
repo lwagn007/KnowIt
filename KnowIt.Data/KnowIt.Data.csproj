@@ -135,6 +135,14 @@
     <Compile Include="Migrations\201808282049519_tryingtoaddmultiple2.Designer.cs">
       <DependentUpon>201808282049519_tryingtoaddmultiple2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808291738097_progressindexmultiplemeds.cs" />
+    <Compile Include="Migrations\201808291738097_progressindexmultiplemeds.Designer.cs">
+      <DependentUpon>201808291738097_progressindexmultiplemeds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808291839497_stuffmultiple.cs" />
+    <Compile Include="Migrations\201808291839497_stuffmultiple.Designer.cs">
+      <DependentUpon>201808291839497_stuffmultiple.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Physician.cs" />
     <Compile Include="IdentityModels.cs" />
@@ -197,6 +205,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808282049519_tryingtoaddmultiple2.resx">
       <DependentUpon>201808282049519_tryingtoaddmultiple2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808291738097_progressindexmultiplemeds.resx">
+      <DependentUpon>201808291738097_progressindexmultiplemeds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808291839497_stuffmultiple.resx">
+      <DependentUpon>201808291839497_stuffmultiple.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

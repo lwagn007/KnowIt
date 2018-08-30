@@ -77,6 +77,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KnowIt.Contracts\KnowIt.Contracts.csproj">
+      <Project>{BD50D4BD-EB73-497D-9A66-0A8734FFCC70}</Project>
+      <Name>KnowIt.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KnowIt.Data\KnowIt.Data.csproj">
       <Project>{8ca5d7aa-1254-4c77-8fc6-d69aa9deb0ff}</Project>
       <Name>KnowIt.Data</Name>

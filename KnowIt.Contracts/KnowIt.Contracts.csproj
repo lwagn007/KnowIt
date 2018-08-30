@@ -65,6 +65,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IEquipmentService.cs" />
+    <Compile Include="IMedicationService.cs" />
+    <Compile Include="IPhysicianPreferenceService.cs" />
+    <Compile Include="IPhysicianService.cs" />
+    <Compile Include="IProcedureService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +80,10 @@
     <ProjectReference Include="..\KnowIt.Data\KnowIt.Data.csproj">
       <Project>{8CA5D7AA-1254-4C77-8FC6-D69AA9DEB0FF}</Project>
       <Name>KnowIt.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KnowIt.Models\KnowIt.Models.csproj">
+      <Project>{F9C92B01-4F09-48FA-9E2A-E05F3004FFD6}</Project>
+      <Name>KnowIt.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

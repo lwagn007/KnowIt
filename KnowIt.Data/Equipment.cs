@@ -20,5 +20,8 @@ namespace KnowIt.Data
 
         [Required]
         public string EquipmentNote { get; set; }
+
+        public virtual ICollection<PhysicianPreference> PhysicianPreferences { get; set; }
+
     }
 }

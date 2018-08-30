@@ -15,6 +15,7 @@ namespace KnowIt.Data
         public int MedicationID { get; set; }
         public int EquipmentID { get; set; }
         public string PreferenceNote { get; set; }
+        public string MedicationName { get; set; }
 
         public virtual Physician Physician { get; set; }
         public virtual Procedure Procedure { get; set; }
@@ -24,5 +25,6 @@ namespace KnowIt.Data
         public bool Assigned { get; set; }
         public virtual ICollection<Medication> Medications { get; set; }
         public virtual ICollection<Equipment> Equipments { get; set; }
+        public virtual ICollection<PhysicianPreference> PhysicianPreferences { get; set; }
     }
 }

@@ -7,5 +7,6 @@ namespace KnowIt.WebMVC.ViewModels
 {
     public class AllEquipments
     {
+        
     }
 }

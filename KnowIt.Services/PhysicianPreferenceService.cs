@@ -1,4 +1,5 @@
-﻿using KnowIt.Data;
+﻿using KnowIt.Contracts;
+using KnowIt.Data;
 using KnowIt.Models.PhysicianProcedure;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace KnowIt.Services
 {
-    public class PhysicianPreferenceService
+    public class PhysicianPreferenceService : IPhysicianPreferenceService
     {
         ApplicationDbContext db = new ApplicationDbContext();
         private readonly Guid _userId;
@@ -18,7 +19,7 @@ namespace KnowIt.Services
             _userId = userId;
         }
 
-        public bool CreatePhysicianPreference(PhysicianPreferenceCreate model, PhysicianPreference physician, string[]selectedMedications)
+        public bool CreatePhysicianPreference(PhysicianPreferenceCreate model)
         {
             var entity =
                 new PhysicianPreference()
@@ -30,20 +31,14 @@ namespace KnowIt.Services
                     EquipmentID = model.EquipmentId,
                     PreferenceNote = model.PreferenceNote
                 };
-            if(selectedMedications !=null)
-            {
-                physician.Medications = new List<Medication>();
-                foreach (var medication in selectedMedications)
-                {
-                    var medicationToAdd = db.Medications.Find(int.Parse(medication));
-                    physician.Medications.Add(medicationToAdd);
-                }
-            }
+            
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.PhysicianPreferences.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
+
+
         }
 
         public IEnumerable<PhysicianPreferenceListItem> GetPhysicianPreferences()
@@ -141,36 +136,5 @@ namespace KnowIt.Services
             }
         }
 
-        //Attempting to create many to many relationship. On Hold to do UI
-        //private void AddMultipleMedications(string[] selectedMedications, PhysicianPreference physicianPreferenceToUpdate)
-        //{
-
-        //    if (selectedMedications == null)
-        //    {
-        //        physicianPreferenceToUpdate.Medication = new List<Medication>();
-        //        return;
-        //    }
-
-        //    var selectedMedication = new HashSet<string>(selectedMedications);
-        //    var physicianMedications = new HashSet<int>
-        //        (physicianPreferenceToUpdate.Medication.Select(m => m.MedicationID));
-        //    foreach (var medication in db.Medications)
-        //    {
-        //        if (selectedMedications.Contains(medication.MedicationID.ToString()))
-        //        {
-        //            if(!physicianMedications.Contains(medication.MedicationID))
-        //            {
-        //                physicianPreferenceToUpdate.Medication.Add(medication);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            if (physicianMedications.Contains(medication.MedicationID))
-        //            {
-        //                physicianPreferenceToUpdate.Medication.Remove(medication);
-        //            }
-        //        }
-        //    }
-        //}
     }
 }

@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KnowIt.Contracts;
 
 namespace KnowIt.Services
 {
-    public class PhysicianService
+    public class PhysicianService : IPhysicianService
     {
         private readonly Guid _userId;
 

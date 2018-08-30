@@ -1,6 +1,7 @@
 ﻿using KnowIt.Data;
 using KnowIt.Models.PhysicianProcedure;
 using KnowIt.Services;
+using KnowIt.WebMVC.ViewModels;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -13,10 +14,26 @@ namespace KnowIt.WebMVC.Controllers
     public class PhysicianPreferenceController : Controller
     {
         // GET: PhysicianPreference
-        public ActionResult Index()
+        public ActionResult Index(int? id, int? medicationId)
         {
+            var viewModel = new PhysicianPreference();
             PhysicianPreferenceService service = NewMethod();
             var model = service.GetPhysicianPreferences();
+            
+            if(id != null)
+            {
+                ViewBag.MedicationId = id.Value;
+                viewModel.Medications = viewModel.PhysicianPreferences.Where(
+                    p => p.PhysicianPreferenceID == id.Value).Single().Medications;
+            }
+
+            if(medicationId != null)
+            {
+                ViewBag.MedicationID = id.Value;
+                viewModel.Medications = viewModel.PhysicianPreferences.Where(
+                    p => p.PhysicianPreferenceID == id.Value).Single().Medications;
+            }
+
             return View(model);
         }
 
@@ -27,12 +44,48 @@ namespace KnowIt.WebMVC.Controllers
             var medicationService = CreateMedicationService();
             var equipmentService = CreateEquipmentService();
 
-            ViewBag.PhysicianID = new SelectList(physicianService.GetPhysicians(), "PhysicianID", "PhysicianLastName");
-            ViewBag.ProcedureID = new SelectList(procedureService.GetProcedures(), "ProcedureID", "ProcedureName");
-            ViewBag.MedicationID = new SelectList(medicationService.GetMedications(), "MedicationID", "MedicationName");
-            ViewBag.EquipmentID = new SelectList(equipmentService.GetEquipments(), "EquipmentID", "EquipmentName");
+            var physicians = physicianService.GetPhysicians();
+            var procedures = procedureService.GetProcedures();
+            var medications = medicationService.GetMedications();
+            var equipments = equipmentService.GetEquipments();
+
+
+            ViewBag.PhysicianID = new SelectList(physicians, "PhysicianID", "PhysicianLastName");
+            ViewBag.ProcedureID = new SelectList(procedures, "ProcedureID", "ProcedureName");
+            ViewBag.EquipmentID = new SelectList(equipments, "EquipmentID", "EquipmentName");
+
+            ViewBag.MedicationId = new SelectList(medications, "MedicationId", "MedicationName");
+
+            //var medication = new AllMedications();
+            //medication.Medications = new List<Medication>();
+            //PopulateAssignedMedicationData(physicianPreference);
             return View();
         }
+
+        private void PopulateAssignedMedicationData(PhysicianPreference physician)
+        {
+            var medService = CreateMedicationService();
+            var allMeds = medService.GetMedications();
+
+            var viewModel = new List<AllMedications>();
+
+            foreach(var med in allMeds)
+            {
+                viewModel.Add(new AllMedications
+                {
+                    MedicationID = med.MedicationId,
+                    Assigned = med.Assigned,
+                    MedicationName = med.MedicationName
+                });
+            }
+
+            ViewBag.AllMedicationsInBag = viewModel;
+
+        }
+
+
+
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -56,7 +109,7 @@ namespace KnowIt.WebMVC.Controllers
             //ViewBag.MedicationID = new SelectList(medicationService.GetMedications(), "MedicationID", "MedicationName", model.MedicationId);
             //ViewBag.EquipmentID = new SelectList(equipmentService.GetEquipments(), "EquipmentID", "EquipmentName", model.EquipmentId);
 
-            if (service.CreatePhysicianPreference(model, physician, selectedMedications))
+            if (service.CreatePhysicianPreference(model))
             {
                 TempData["SaveResult"] = "Your physician preference entry was saved.";
                 return RedirectToAction("Index");

@@ -14,5 +14,7 @@ namespace KnowIt.Data
         public string MedicationClass { get; set; }
         public string MedicationUse { get; set; }
         public bool Assigned { get; set; }
+
+        public virtual ICollection<PhysicianPreference> PhysicianPreferences { get; set; }
     }
 }

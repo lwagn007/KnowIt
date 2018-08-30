@@ -1,4 +1,5 @@
-﻿using KnowIt.Data;
+﻿using KnowIt.Contracts;
+using KnowIt.Data;
 using KnowIt.Models.Medication;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace KnowIt.Services
 {
-    public class MedicationService
+    public class MedicationService : IMedicationService
     {
         private readonly Guid _userId;
 
@@ -37,6 +38,7 @@ namespace KnowIt.Services
 
         public IEnumerable<MedicationListItem> GetMedications()
         {
+            System.Diagnostics.Debugger.NotifyOfCrossThreadDependency();
             using (var ctx = new ApplicationDbContext())
             {
                 var query =

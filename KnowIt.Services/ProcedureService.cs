@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KnowIt.Contracts;
 
 namespace KnowIt.Services
 {
-    public class ProcedureService
+    public class ProcedureService : IProcedureService
     {
         private readonly Guid _userId;
 
