@@ -53,14 +53,16 @@ namespace KnowIt.WebMVC.Controllers
            ViewBag.PhysicianID = new SelectList(physicians, "PhysicianID", "PhysicianLastName");
             ViewBag.ProcedureID = new SelectList(procedures, "ProcedureID", "ProcedureName");
             ViewBag.EquipmentID = new SelectList(equipments, "EquipmentID", "EquipmentName");
-            ViewBag.MedicationId = new SelectList(medications, "MedicationId", "MedicationName");
+            //ViewBag.MedicationId = new SelectList(medications, "MedicationId", "MedicationName");
 
-            //var medication = new AllMedicationCreate();
-            //medication.Medications = new List<AllMedicationCreate>();
-            //PopulateAssignedMedicationData(medication);
+            var medication = new AllMedicationCreate();
+            medication.Medications = new List<AllMedicationCreate>();
+            PopulateAssignedMedicationData(medication);
             return View();
         }
 
+
+        //TODO 1 
         private void PopulateAssignedMedicationData(AllMedicationCreate allMedication)
         {
             var medService = CreateMedicationService();
