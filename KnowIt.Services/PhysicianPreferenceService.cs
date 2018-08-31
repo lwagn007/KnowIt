@@ -58,7 +58,8 @@ namespace KnowIt.Services
                             ProcedureId = e.Procedure.ProcedureID,
                             MedicationId = e.Medication.MedicationID,
                             EquipmentId = e.Equipment.EquipmentID,
-
+                            PhysicianLastName = e.Physician.PhysicianLastName,
+                            ProcedureName = e.Procedure.ProcedureName
                         }
                       );
                 return query.ToArray();

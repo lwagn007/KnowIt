@@ -15,16 +15,13 @@
             <thead class="bg-primary">
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.ProcedureId)
-                    </th>
-                    <th>
                         @Html.DisplayNameFor(model => model.ProcedureName)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.ProcedureNote)
+                        @Html.DisplayNameFor(model => model.ProcedureRoute)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.ProcedureRoute)
+                        @Html.DisplayNameFor(model => model.ProcedureNote)
                     </th>
                     <th></th>
                 </tr>
@@ -33,16 +30,13 @@
             {
                 <tr class="info">
                     <td>
-                        @Html.DisplayFor(modelItem => item.ProcedureId)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.ProcedureName)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ProcedureNote)
+                        @Html.DisplayFor(modelItem => item.ProcedureRoute)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ProcedureRoute)
+                        @Html.DisplayFor(modelItem => item.ProcedureNote)
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.ProcedureId }) |

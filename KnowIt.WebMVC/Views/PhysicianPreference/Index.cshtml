@@ -3,14 +3,14 @@
 @{
     ViewBag.Title = "Index";
 }
+
 <div class="panel panelsize">
     <div class="tablespace">
         <h2><b>Physician Preference Library</b></h2>
         <p>
             @Html.ActionLink("Create New", "Create")
         </p>
-        <hr/>
-
+        <hr />
         <table class="table table-responsive table-hover">
             <thead class="bg-primary">
                 <tr>
@@ -23,7 +23,6 @@
                     <th></th>
                 </tr>
             </thead>
-
             @foreach (var item in Model)
             {
                 <tr class="info">

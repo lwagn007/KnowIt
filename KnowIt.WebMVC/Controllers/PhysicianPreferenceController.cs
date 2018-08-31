@@ -14,20 +14,20 @@ namespace KnowIt.WebMVC.Controllers
     public class PhysicianPreferenceController : Controller
     {
         // GET: PhysicianPreference
-        public ActionResult Index(int? id, int? medicationId)
+        public ActionResult Index(/*int? id, int? medicationId*/)
         {
             var viewModel = new PhysicianPreference();
             PhysicianPreferenceService service = NewMethod();
             var model = service.GetPhysicianPreferences();
-            
-            //if(id != null)
+
+            //if (id != null)
             //{
             //    ViewBag.MedicationId = id.Value;
-            //    viewModel.Medications = viewModel.PhysicianPreferences.Where(
+            //    viewModel.Medication = viewModel.PhysicianPreferences.Where(
             //        p => p.PhysicianPreferenceID == id.Value).Single().Medications;
             //}
 
-            //if(medicationId != null)
+            //if (medicationId != null)
             //{
             //    ViewBag.MedicationID = id.Value;
             //    viewModel.Medications = viewModel.PhysicianPreferences.Where(
@@ -50,7 +50,7 @@ namespace KnowIt.WebMVC.Controllers
             var equipments = equipmentService.GetEquipments();
 
 
-            ViewBag.PhysicianID = new SelectList(physicians, "PhysicianID", "PhysicianLastName");
+           ViewBag.PhysicianID = new SelectList(physicians, "PhysicianID", "PhysicianLastName");
             ViewBag.ProcedureID = new SelectList(procedures, "ProcedureID", "ProcedureName");
             ViewBag.EquipmentID = new SelectList(equipments, "EquipmentID", "EquipmentName");
             ViewBag.MedicationId = new SelectList(medications, "MedicationId", "MedicationName");
