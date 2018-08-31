@@ -1,0 +1,7 @@
+﻿SET IDENTITY_INSERT [dbo].[Procedure] ON
+INSERT INTO [dbo].[Procedure] ([ProcedureID], [OwnerID], [ProcedureName], [ProcedureNote], [ProcedureRoute]) VALUES (1, N'6040d91b-fd01-40c5-bcb6-37d18d6fbbf3', N'Left Cardiac Catheterization', N'Diagnositic procedure, coronary angio and cross the aortic valve to measure LV pressures.', N'Femoral/Radial')
+INSERT INTO [dbo].[Procedure] ([ProcedureID], [OwnerID], [ProcedureName], [ProcedureNote], [ProcedureRoute]) VALUES (2, N'6040d91b-fd01-40c5-bcb6-37d18d6fbbf3', N'Right Cardiac Catheterization', N'Measure Venous Pressures of the heart', N'Internal Jugular/Femoral')
+INSERT INTO [dbo].[Procedure] ([ProcedureID], [OwnerID], [ProcedureName], [ProcedureNote], [ProcedureRoute]) VALUES (3, N'6040d91b-fd01-40c5-bcb6-37d18d6fbbf3', N'Atrial Septal Defect Closure', N'It''s Hermiller', N'Femoral')
+INSERT INTO [dbo].[Procedure] ([ProcedureID], [OwnerID], [ProcedureName], [ProcedureNote], [ProcedureRoute]) VALUES (4, N'6040d91b-fd01-40c5-bcb6-37d18d6fbbf3', N'Temporary Pacemaker Insertion', N'Femoral/Internal Jugular', N'Due to bradycardia usually')
+INSERT INTO [dbo].[Procedure] ([ProcedureID], [OwnerID], [ProcedureName], [ProcedureNote], [ProcedureRoute]) VALUES (5, N'6040d91b-fd01-40c5-bcb6-37d18d6fbbf3', N'Debug', N'Take debugging issues to bistro to hear bistro squeeking and help concentration', N'Computer Interface')
+SET IDENTITY_INSERT [dbo].[Procedure] OFF

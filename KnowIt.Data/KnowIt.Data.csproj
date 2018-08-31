@@ -71,6 +71,10 @@
     <Compile Include="Migrations\201808302105224_revertingbacktobasicphysicianpreferencecrud.Designer.cs">
       <DependentUpon>201808302105224_revertingbacktobasicphysicianpreferencecrud.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808311817478_reenablemultiplemedscreateview.cs" />
+    <Compile Include="Migrations\201808311817478_reenablemultiplemedscreateview.Designer.cs">
+      <DependentUpon>201808311817478_reenablemultiplemedscreateview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Physician.cs" />
     <Compile Include="IdentityModels.cs" />
@@ -85,6 +89,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808302105224_revertingbacktobasicphysicianpreferencecrud.resx">
       <DependentUpon>201808302105224_revertingbacktobasicphysicianpreferencecrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808311817478_reenablemultiplemedscreateview.resx">
+      <DependentUpon>201808311817478_reenablemultiplemedscreateview.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
