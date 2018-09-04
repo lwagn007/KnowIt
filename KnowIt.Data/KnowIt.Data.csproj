@@ -75,6 +75,14 @@
     <Compile Include="Migrations\201808311817478_reenablemultiplemedscreateview.Designer.cs">
       <DependentUpon>201808311817478_reenablemultiplemedscreateview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809041801221_multipleequipment.cs" />
+    <Compile Include="Migrations\201809041801221_multipleequipment.Designer.cs">
+      <DependentUpon>201809041801221_multipleequipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809041841596_multipleprocedure.cs" />
+    <Compile Include="Migrations\201809041841596_multipleprocedure.Designer.cs">
+      <DependentUpon>201809041841596_multipleprocedure.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Physician.cs" />
     <Compile Include="IdentityModels.cs" />
@@ -92,6 +100,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808311817478_reenablemultiplemedscreateview.resx">
       <DependentUpon>201808311817478_reenablemultiplemedscreateview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809041801221_multipleequipment.resx">
+      <DependentUpon>201809041801221_multipleequipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809041841596_multipleprocedure.resx">
+      <DependentUpon>201809041841596_multipleprocedure.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

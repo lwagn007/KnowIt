@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<div class="panel panelsize" style="overflow:hidden">
+<div class="panel transparent">
     <div class="tablespace">
         <h2>Physician Details</h2>
         <p>
@@ -15,7 +15,7 @@
         <div class="panel panel-body panel-info">
             <dl class="dl-horizontal">
                 <dt>
-                    Physician First Name:
+                    First Name:
                 </dt>
 
                 <dd>
@@ -23,17 +23,15 @@
                 </dd>
 
                 <dt>
-                    Physician Last Name:
+                     Last Name:
                 </dt>
-                <br />
+
                 <dd>
                     @Html.DisplayFor(model => model.PhysicianLastName)
                 </dd>
-                <br />
                 <dt>
-                    Physician Specialty:
+                     Specialty:
                 </dt>
-
                 <dd>
                     @Html.DisplayFor(model => model.Specialty)
                 </dd>

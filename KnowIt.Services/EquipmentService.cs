@@ -103,5 +103,16 @@ namespace KnowIt.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public int GetEquipmentIdFromStringName(string equipment)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var id =
+                    ctx.Equipments.SingleOrDefault(e => e.EquipmentName == equipment);
+
+                return id.EquipmentID;
+            }
+        }
     }
 }

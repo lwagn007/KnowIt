@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KnowIt.Data;
+using KnowIt.Models.Equipment;
 using KnowIt.Models.Medication;
+using KnowIt.Models.Procedure;
 
 namespace KnowIt.Models.PhysicianProcedure
 {
@@ -19,7 +21,8 @@ namespace KnowIt.Models.PhysicianProcedure
         public bool Assigned { get; set; }
 
         public virtual ICollection<MedicationListItem> Medications { get; set; }
-        //public virtual ICollection<Data.Equipment> Equipments { get; set; }
+        public virtual ICollection<EquipmentListItem> Equipments { get; set; }
+        public virtual ICollection<ProcedureListItem> Procedures { get; set; }
         //public virtual ICollection<PhysicianPreference> PhysicianPreferences { get; set; }
     }
 }

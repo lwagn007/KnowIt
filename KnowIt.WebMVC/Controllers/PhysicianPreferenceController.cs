@@ -1,6 +1,8 @@
 ﻿using KnowIt.Data;
+using KnowIt.Models.Equipment;
 using KnowIt.Models.Medication;
 using KnowIt.Models.PhysicianProcedure;
+using KnowIt.Models.Procedure;
 using KnowIt.Services;
 using KnowIt.WebMVC.ViewModels;
 using Microsoft.AspNet.Identity;
@@ -15,28 +17,35 @@ namespace KnowIt.WebMVC.Controllers
 
     public class PhysicianPreferenceController : Controller
     {
-        ApplicationDbContext db = new ApplicationDbContext();
-
         // GET: PhysicianPreference //TODO uncomment int?s if populating multiple meds.  
-        public ActionResult Index() //int? id, int? medicationId
+        public ActionResult Index(int? id, int? physicianId) //int? id, int? medicationId, int? equipmentId, int? procedureId
         {
             var viewModel = new PhysicianPreference();
             PhysicianPreferenceService service = NewMethod();
             var model = service.GetPhysicianPreferences();
 
             //TODO 3 uncomment to show multiple medications
+            if (id != null)
+            {
+                ViewBag.PhysicianId = id.Value;
+                viewModel.Medications = viewModel.PhysicianPreferences.Where(
+                    p => p.PhysicianID == id.Value).Single().Medications;
+            }
+
+            if (physicianId != null)
+
+
             //if (id != null)
             //{
-            //    ViewBag.MedicationId = id.Value;
-            //    viewModel.Medications = viewModel.PhysicianPreferences.Where(
-            //        p => p.PhysicianPreferenceID == id.Value).Single().Medications;
+            //    ViewBag.PhysicianId = id.Value;
+            //    viewModel.Equipments = viewModel.PhysicianPreferences.Where(
+            //        p => p.PhysicianID == id.Value).Single().Equipments;
             //}
-
-            //if (medicationId != null)
+            //if (id != null)
             //{
-            //    ViewBag.MedicationID = id.Value;
-            //    viewModel.Medications = viewModel.PhysicianPreferences.Where(
-            //        p => p.PhysicianPreferenceID == id.Value).Single().Medications;
+            //    ViewBag.PhysicianId = id.Value;
+            //    viewModel.Procedures = viewModel.PhysicianPreferences.Where(
+            //        p => p.PhysicianID == id.Value).Single().Procedures;
             //}
 
             return View(model);
@@ -56,13 +65,22 @@ namespace KnowIt.WebMVC.Controllers
 
 
             ViewBag.PhysicianID = new SelectList(physicians, "PhysicianID", "PhysicianLastName");
-            ViewBag.ProcedureID = new SelectList(procedures, "ProcedureID", "ProcedureName");
-            ViewBag.EquipmentID = new SelectList(equipments, "EquipmentID", "EquipmentName");
+            //ViewBag.ProcedureID = new SelectList(procedures, "ProcedureID", "ProcedureName");
+            //ViewBag.EquipmentID = new SelectList(equipments, "EquipmentID", "EquipmentName");
             //ViewBag.MedicationId = new SelectList(medications, "MedicationId", "MedicationName");
 
             var medication = new MedicationListItem();
             medication.Medications = new List<MedicationListItem>();
             PopulateAssignedMedicationData(medication);
+
+            var equipment = new EquipmentListItem();
+            equipment.Equipments = new List<EquipmentListItem>();
+            PopulateAssignedEquipmentData(equipment);
+
+            var procedure = new ProcedureListItem();
+            procedure.Procedures = new List<ProcedureListItem>();
+            PopulateAssignedProcedureData(procedure);
+
             return View();
         }
 
@@ -86,18 +104,54 @@ namespace KnowIt.WebMVC.Controllers
             }
 
             ViewBag.AllMedicationsInBag = viewModel;
+        }
 
+        private void PopulateAssignedEquipmentData(EquipmentListItem allEquipment)
+        {
+            var equipService = CreateEquipmentService();
+            var allEquips = equipService.GetEquipments();
+
+            var viewModel = new List<EquipmentListItem>();
+
+            foreach (var equip in allEquips)
+            {
+                viewModel.Add(new EquipmentListItem
+                {
+                    EquipmentId = equip.EquipmentId,
+                    Assigned = equip.Assigned,
+                    EquipmentName = equip.EquipmentName
+                });
+            }
+
+            ViewBag.AllEquipmentsInBag = viewModel;
+        }
+
+        private void PopulateAssignedProcedureData(ProcedureListItem allProcedure)
+        {
+            var procedService = CreateProcedureService();
+            var allProceds = procedService.GetProcedures();
+
+            var viewModel = new List<ProcedureListItem>();
+
+            foreach (var proced in allProceds)
+            {
+                viewModel.Add(new ProcedureListItem
+                {
+                    ProcedureId = proced.ProcedureId,
+                    Assigned = proced.Assigned,
+                    ProcedureName = proced.ProcedureName
+                });
+            }
+
+            ViewBag.AllProceduresInBag = viewModel;
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //PhysicianPreference was PhysicianPreferenceCreate
-        public ActionResult Create(PhysicianPreferenceCreate model, string[] selectedMedications)
+        public ActionResult Create(PhysicianPreferenceCreate model, string[] selectedMedications, string[] selectedEquipments, string[] selectedProcedures)
         {
-            if (selectedMedications != null)
+            if (selectedMedications != null && selectedEquipments !=null && selectedProcedures != null)
             {
-                //model.Medications = new List<MedicationListItem>();
-
                 foreach (var medication in selectedMedications)
                 {
                     var physPrefService = CreatePhysicianPreferenceService();
@@ -106,17 +160,26 @@ namespace KnowIt.WebMVC.Controllers
                     physPrefService.CreatePhysicianPreference(model);
                     
                 }
+                foreach (var equipment in selectedEquipments)
+                {
+                    var physPrefService = CreatePhysicianPreferenceService();
+                    var equipId = int.Parse(equipment);
+                    model.EquipmentId = equipId;
+                    physPrefService.CreatePhysicianPreference(model);
+                }
+                foreach (var procedure in selectedProcedures)
+                {
+                    var physPrefService = CreatePhysicianPreferenceService();
+                    var procedId = int.Parse(procedure);
+                    model.ProcedureId = procedId;
+                    physPrefService.CreatePhysicianPreference(model);
+                }
             }
             if (ModelState.IsValid)
             {
-                //db.PhysicianPreferences.Add(model);
-                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            //PopulateAssignedCourseData(model);
-            // We need to get the Med id
-
-            //add the method        
+    
             if (!ModelState.IsValid) return View(model);
 
             var service = CreatePhysicianPreferenceService();
@@ -141,30 +204,30 @@ namespace KnowIt.WebMVC.Controllers
         }
 
 
-        public ActionResult Edit(int id)
-        {
-            var service = CreatePhysicianPreferenceService();
-            var detail = service.GetPhysicianPreferenceById(id);
-            var model =
-                new PhysicianPreferenceEdit
-                {
-                    //PhysicianPreferenceId = detail.PhysicianPreferenceId,
-                    //PhysicianId = detail.PhysicianId,
-                    //ProcedureId = detail.ProcedureId,
-                    //MedicationId = detail.MedicationId,
-                    //EquipmentId = detail.EquipmentId,
-                    PhysicianFirstName = detail.PhysicianFirstName,
-                    PhysicianLastName = detail.PhysicianLastName,
-                    Specialty = detail.Specialty,
-                    ProcedureName = detail.ProcedureName,
-                    ProcedureNote = detail.ProcedureNote,
-                    ProcedureRoute = detail.ProcedureRoute,
-                    MedicationName = detail.MedicationName,
-                    EquipmentName = detail.EquipmentName,
-                    PreferenceNote = detail.PreferenceNote
-                };
-            return View(model);
-        }
+        //public ActionResult Edit(int id)
+        //{
+        //    var service = CreatePhysicianPreferenceService();
+        //    var detail = service.GetPhysicianPreferenceById(id);
+        //    var model =
+        //        new PhysicianPreferenceEdit
+        //        {
+        //            PhysicianPreferenceId = detail.PhysicianPreferenceId,
+        //            PhysicianId = detail.PhysicianId,
+        //            ProcedureId = detail.ProcedureId,
+        //            MedicationId = detail.MedicationId,
+        //            EquipmentId = detail.EquipmentId,
+        //            PhysicianFirstName = detail.PhysicianFirstName,
+        //            PhysicianLastName = detail.PhysicianLastName,
+        //            Specialty = detail.Specialty,
+        //            ProcedureName = detail.ProcedureName,
+        //            ProcedureNote = detail.ProcedureNote,
+        //            ProcedureRoute = detail.ProcedureRoute,
+        //            MedicationName = detail.MedicationName,
+        //            EquipmentName = detail.EquipmentName,
+        //            PreferenceNote = detail.PreferenceNote
+        //        };
+        //    return View(model);
+        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]

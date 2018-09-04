@@ -12,6 +12,7 @@ namespace KnowIt.Services
     public class PhysicianPreferenceService : IPhysicianPreferenceService
     {
         ApplicationDbContext db = new ApplicationDbContext();
+
         private readonly Guid _userId;
 
         public PhysicianPreferenceService(Guid userId)
@@ -31,37 +32,39 @@ namespace KnowIt.Services
                     MedicationID = model.MedicationId,
                     PreferenceNote = model.PreferenceNote
                 };
-            
+
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.PhysicianPreferences.Add(entity);
-                return ctx.SaveChanges() >= 1;
+                return ctx.SaveChanges() == 1;
             }
 
 
         }
 
-        public IEnumerable<PhysicianPreferenceListItem> GetPhysicianPreferences()
+        public IEnumerable<PhysicianPreferenceListItem> GetPhysicianPreferences(int physicianId, string preferenceNote)
         {
-            System.Diagnostics.Debugger.NotifyOfCrossThreadDependency();
+            //System.Diagnostics.Debugger.NotifyOfCrossThreadDependency();
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
-                    ctx
-                        .PhysicianPreferences
-                        .Where(e => e.OwnerID == _userId)
-                        .Select(
-                        e => new PhysicianPreferenceListItem
-                        {
-                            PhysicianPreferenceId = e.PhysicianPreferenceID,
-                            PhysicianId = e.Physician.PhysicianID,
-                            ProcedureId = e.Procedure.ProcedureID,
-                            MedicationId = e.Medication.MedicationID,
-                            EquipmentId = e.Equipment.EquipmentID,
-                            PhysicianLastName = e.Physician.PhysicianLastName,
-                            ProcedureName = e.Procedure.ProcedureName
-                        }
-                      );
+                     ctx
+                         .PhysicianPreferences
+                         .Where(e => e.PhysicianID == physicianId && e.PreferenceNote == preferenceNote)
+                         .Select(
+                         e => new PhysicianPreferenceListItem
+                         {
+                                //PhysicianPreferenceId = e.PhysicianPreferenceID,
+                                PhysicianId = e.Physician.PhysicianID,
+                                //ProcedureId = e.Procedure.ProcedureID,
+                                //MedicationId = e.Medication.MedicationID,
+                                //EquipmentId = e.Equipment.EquipmentID,
+                                PhysicianLastName = e.Physician.PhysicianLastName,
+                                //ProcedureName = e.Procedures.Procedures
+                                PreferenceNote = e.PreferenceNote
+                         }
+                       );
+
                 return query.ToArray();
             }
         }

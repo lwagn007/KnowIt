@@ -104,5 +104,16 @@ namespace KnowIt.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public int GetProcedureIdFromStringName(string procedure)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var id =
+                    ctx.Procedures.SingleOrDefault(p => p.ProcedureName == procedure);
+
+                return id.ProcedureID;
+            }
+        }
     }
 }

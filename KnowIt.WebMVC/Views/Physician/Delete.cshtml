@@ -4,7 +4,7 @@
     ViewBag.Title = "Delete";
 }
 
-<div class="panel panelsize" style="overflow:hidden">
+<div class="panel transparent">
     <div class="tablespace">
         <h2>Delete</h2>
         @using (Html.BeginForm())
@@ -20,23 +20,23 @@
         <div class="panel panel-body panel-info">
             <dl class="dl-horizontal">
                 <dt>
-                    Physician First Name:
+                    First Name:
                 </dt>
 
                 <dd>
                     @Html.DisplayFor(model => model.PhysicianFirstName)
                 </dd>
-                <br />
+
                 <dt>
-                    Physician Last Name:
+                    Last Name:
                 </dt>
 
                 <dd>
                     @Html.DisplayFor(model => model.PhysicianLastName)
                 </dd>
-                <br />
+
                 <dt>
-                    Physician Specialty:
+                    Specialty:
                 </dt>
 
                 <dd>

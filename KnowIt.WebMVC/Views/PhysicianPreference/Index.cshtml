@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<div class="panel panelsize">
+<div class="panel transparent">
     <div class="tablespace">
         <h2><b>Physician Preference Library</b></h2>
         <p>
@@ -20,6 +20,9 @@
                     <th>
                         Procedure
                     </th>
+                    <th>
+                        Procedure Note
+                    </th>
                     <th></th>
                 </tr>
             </thead>
@@ -31,6 +34,9 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.ProcedureName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProcedureNote)
                     </td>
                     <td>
                         @*@Html.ActionLink("Edit", "Edit", new { id = item.PhysicianPreferenceId }) |*@

@@ -1,12 +1,10 @@
 ﻿@model KnowIt.Models.PhysicianProcedure.PhysicianPreferenceCreate
 
 @{
-                /**/
-
-                ViewBag.Title = "Create";
+    ViewBag.Title = "Create";
 }
 
-<div class="panel panelsize">
+<div class="panel transparent">
     <div class="tablespace">
 
         @using (Html.BeginForm())
@@ -22,63 +20,69 @@
                 <div class="panel panel-body panel-info">
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
-                        @Html.LabelFor(model => model.PhysicianId, "Physician:", htmlAttributes: new { @class = "control-label col-md-4" })
+                        @Html.LabelFor(model => model.PhysicianId, "Physician:", htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-6">
                             @Html.DropDownList("PhysicianID", null, htmlAttributes: new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.PhysicianId, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.ProcedureId, "Procedure:", htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.DropDownList("ProcedureID", null, htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.ProcedureId, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
                     @*<div class="form-group">
-            @Html.LabelFor(model => model.MedicationId, htmlAttributes: new { @class = "control-label col-md-4" })
-            <div class="col-md-6">
-                @Html.DropDownList("MedicationID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.MedicationId, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+                            @Html.LabelFor(model => model.ProcedureId, "Procedure:", htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-6">
+                                @Html.DropDownList("ProcedureID", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ProcedureId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
 
-                    @*Turn on for multiple meds in create view*@
-                    @*<div class="col-md-offset-4 col-md-10">
-                        <table>
+                    <div class="col-md-12 form-group">
+                        <div>
+                            @Html.LabelFor(model => model.ProcedureId, "Procedure:", htmlAttributes: new { @class = "control-label col-md-3" })
+                        </div>
+                        <table class="col-md-9">
                             <tr>
                                 @{
-                                    int cnt = 0;
-                                    List<KnowIt.Models.Medication.MedicationListItem> medications = ViewBag.AllMedicationsInBag;
+                                    int counts = 0;
+                                    List<KnowIt.Models.Procedure.ProcedureListItem> procedures = ViewBag.AllProceduresInBag;
 
-                                    foreach (var item in medications)
+                                    foreach (var item in procedures)
                                     {
-                                        if (cnt++ % 3 == 0)
+                                        if (counts++ % 3 == 0)
                                         {
                                         @:</tr><tr>
                                         }
                                         @:<td>
                                             <input type="checkbox"
-                                                   name="selectedMedications"
-                                                   value="@item.MedicationId"
+                                                   name="selectedProcedures"
+                                                   value="@item.ProcedureId"
                                                    @(Html.Raw(item.Assigned ? "checked=\"checked\"" : "")) />
-                                            @item.MedicationId @:  @item.MedicationName
+                                            @item.ProcedureId @:  @item.ProcedureName
                                         @:</td>
                                     }
                                 @:</tr>
                                 }
                             </table>
-                        </div>*@
+                        </div>
 
-                        <div class="col-md-offset-4 col-md-10">
-                            <table>
+                        @*<div class="form-group">
+                                @Html.LabelFor(model => model.MedicationId, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-6">
+                                    @Html.DropDownList("MedicationID", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MedicationId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>*@
+
+                        @*Turn on for multiple meds in create view*@
+
+                        <div class="col-md-12 form-group">
+                            <div>
+                                @Html.LabelFor(model => model.MedicationId, "Medication:", htmlAttributes: new { @class = "control-label col-md-3" })
+                            </div>
+                            <table class="col-md-5">
                                 <tr>
                                     @{
                                         int cnt = 0;
                                         List<KnowIt.Models.Medication.MedicationListItem> medications = ViewBag.AllMedicationsInBag;
-
 
                                         foreach (var item in medications)
                                         {
@@ -99,32 +103,60 @@
                                 </table>
                             </div>
 
+                            @*<div class="form-group">
+                                    @Html.LabelFor(model => model.EquipmentId, "Equipment:", htmlAttributes: new { @class = "control-label col-md-4" })
+                                    <div class="col-md-6">
+                                        @Html.DropDownList("EquipmentID", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.EquipmentId, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>*@
 
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.EquipmentId, "Equipment:", htmlAttributes: new { @class = "control-label col-md-4" })
-                                <div class="col-md-6">
-                                    @Html.DropDownList("EquipmentID", null, htmlAttributes: new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.EquipmentId, "", new { @class = "text-danger" })
+                            <div class="col-md-12 form-group">
+                                <div>
+                                    @Html.LabelFor(model => model.EquipmentId, "Equipment:", htmlAttributes: new { @class = "control-label col-md-3" })
                                 </div>
-                            </div>
+                                <table>
+                                    <tr>
+                                        @{
+                                            int count = 0;
+                                            List<KnowIt.Models.Equipment.EquipmentListItem> equipments = ViewBag.AllEquipmentsInBag;
 
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.PreferenceNote, "Preference Note:", htmlAttributes: new { @class = "control-label col-md-4" })
-                                <div class="col-md-6">
-                                    @Html.EditorFor(model => model.PreferenceNote, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.PreferenceNote, "", new { @class = "text-danger" })
+
+                                            foreach (var item in equipments)
+                                            {
+                                                if (count++ % 3 == 0)
+                                                {
+                                                @:</tr><tr>
+                                                }
+                                                @:<td>
+                                                    <input type="checkbox"
+                                                           name="selectedEquipments"
+                                                           value="@item.EquipmentId"
+                                                           @(Html.Raw(item.Assigned ? "checked=\"checked\"" : "")) />
+                                                    @item.EquipmentId @:  @item.EquipmentName
+                                                @:</td>
+                                            }
+                                        @:</tr>
+                                        }
+                                    </table>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <div class="col-md-offset-4 col-md-10">
-                                    <input type="submit" value="Create" class="btn btn-default" />
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.PreferenceNote, "Preference Note:", htmlAttributes: new { @class = "control-label col-md-3" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.PreferenceNote, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.PreferenceNote, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-4 col-md-10">
+                                        <input type="submit" value="Create" class="btn btn-default" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                </div>
-            }
+                    }
     </div>
 </div>
 

@@ -10,7 +10,7 @@ namespace KnowIt.Contracts
     public interface IPhysicianPreferenceService
     {
         bool CreatePhysicianPreference(PhysicianPreferenceCreate model);
-        IEnumerable<PhysicianPreferenceListItem> GetPhysicianPreferences();
+        IEnumerable<PhysicianPreferenceListItem> GetPhysicianPreferences(int id, string note);
         PhysicianPreferenceDetail GetPhysicianPreferenceById(int id);
         bool UpdatePhysicianPreference(PhysicianPreferenceEdit model);
         bool DeletePhysicianPreference(int physicianPreferenceId);

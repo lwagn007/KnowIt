@@ -23,5 +23,7 @@ namespace KnowIt.Data
         //TODO 2 Turn On to pull multiple medications
         public virtual ICollection<PhysicianPreference> PhysicianPreferences { get; set; }
         public virtual ICollection<Medication> Medications { get; set; }
+        public virtual ICollection<Equipment> Equipments { get; set; }
+        public virtual ICollection<Procedure> Procedures { get; set; }
     }
 }

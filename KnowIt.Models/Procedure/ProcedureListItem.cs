@@ -12,5 +12,8 @@ namespace KnowIt.Models.Procedure
         public string ProcedureName { get; set; }
         public string ProcedureNote { get; set; }
         public string ProcedureRoute { get; set; }
+        public bool Assigned { get; set; }
+
+        public virtual ICollection<ProcedureListItem> Procedures { get; set; }
     }
 }
