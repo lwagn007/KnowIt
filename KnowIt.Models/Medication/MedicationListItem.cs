@@ -13,5 +13,7 @@ namespace KnowIt.Models.Medication
         public string MedicationClass { get; set; }
         public string MedicationUse { get; set; }
         public bool Assigned { get; set; }
+
+        public virtual ICollection<MedicationListItem> Medications { get; set; }
     }
 }

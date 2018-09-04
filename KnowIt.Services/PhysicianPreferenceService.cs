@@ -35,7 +35,7 @@ namespace KnowIt.Services
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.PhysicianPreferences.Add(entity);
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() >= 1;
             }
 
 

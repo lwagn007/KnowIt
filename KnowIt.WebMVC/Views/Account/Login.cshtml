@@ -1,34 +1,31 @@
 ﻿@using KnowIt.WebMVC.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = "Log In";
 }
 
 
-<div class="panel panelsize" style="overflow:hidden">
+<div class="container transparent" style="overflow:hidden">
     <div class="tablespace">
         <div class="col-md-12">
             <div class="panel panel-body panel-info text">
                 <section id="loginForm">
-                    <h2>@ViewBag.Title</h2>
+                    <h2><b>@ViewBag.Title</b></h2>
                     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                     {
                         @Html.AntiForgeryToken()
                         <div class="form-actions">
-                            <input type="submit" value="Log in" class="btn btn-default" /> |
-                            <span class="">
-                                @Html.CheckBoxFor(m => m.RememberMe)
-                                @Html.LabelFor(m => m.RememberMe)
-                            </span> |
-                            <span>
+                            |<span>
                                 @Html.ActionLink("New User?", "Register")
-                            </span>
+                            </span>|
+                            <br />
+                            
                         </div>
                         <hr />
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group">
                             @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                             </div>
@@ -44,6 +41,15 @@
                             <p>
                                 @Html.ActionLink("Forgot your password?", "ForgotPassword")
                             </p>*@
+                        <div class="form-actions">
+                            <input type="submit" value="Log in" class="btn btn-default" />
+                        </div>
+                        <div class="form-actions">
+                            <span>
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </span>
+                        </div>
                     }
                 </section>
             </div>

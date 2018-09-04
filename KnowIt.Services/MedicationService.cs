@@ -108,5 +108,15 @@ namespace KnowIt.Services
             }
         }
 
+        public int GetMedicationIdFromStringName(string medication)
+        {
+             using(var ctx = new ApplicationDbContext())
+            {
+                var id =
+                    ctx.Medications.SingleOrDefault(m => m.MedicationName == medication);
+
+                return id.MedicationID;
+            }
+        }
     }
 }

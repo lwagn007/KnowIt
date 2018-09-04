@@ -49,13 +49,12 @@ namespace KnowIt.Data
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
 
-            // attempting to create many to many relationship. On hold for UI
+            //// attempting to create many to many relationship. On hold for UI
             //modelBuilder.Entity<Medication>()
-            //    .HasMany(m => m.Physicians).WithMany(p => p.Medications)
+            //    .HasMany(m => m.PhysicianPreferences).WithMany(m => m.Medications)
             //    .Map(t => t.MapLeftKey("MedicationID"))
-            //        .MapRightKey("PhysicianID")
+            //        .MapRightKey("PhysicianPreferenceID")
             //        .ToTable("MedicationPhysician");
-           
         }
     }
 

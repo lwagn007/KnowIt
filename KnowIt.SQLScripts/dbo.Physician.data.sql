@@ -6,4 +6,7 @@ INSERT INTO [dbo].[Physician] ([PhysicianID], [OwnerID], [PhysicianFirstName], [
 INSERT INTO [dbo].[Physician] ([PhysicianID], [OwnerID], [PhysicianFirstName], [PhysicianLastName], [Specialty]) VALUES (5, N'6040d91b-fd01-40c5-bcb6-37d18d6fbbf3', N'Sampson', N'Andrew', N'Cardiology - Interventional/Structural')
 INSERT INTO [dbo].[Physician] ([PhysicianID], [OwnerID], [PhysicianFirstName], [PhysicianLastName], [Specialty]) VALUES (6, N'6040d91b-fd01-40c5-bcb6-37d18d6fbbf3', N'Hodes', N'Zachary', N'Cardiology - Interventional Cardiology')
 INSERT INTO [dbo].[Physician] ([PhysicianID], [OwnerID], [PhysicianFirstName], [PhysicianLastName], [Specialty]) VALUES (7, N'6040d91b-fd01-40c5-bcb6-37d18d6fbbf3', N'Rafael', N'Garcia-Cortes', N'Cardiology - Heart Failure Specialist')
+INSERT INTO [dbo].[Physician] ([PhysicianID], [OwnerID], [PhysicianFirstName], [PhysicianLastName], [Specialty]) VALUES (8, N'6040d91b-fd01-40c5-bcb6-37d18d6fbbf3', N'Ashwin', N'Ravichandran', N'Cardiology - Heart Failure Specialist')
+INSERT INTO [dbo].[Physician] ([PhysicianID], [OwnerID], [PhysicianFirstName], [PhysicianLastName], [Specialty]) VALUES (9, N'6040d91b-fd01-40c5-bcb6-37d18d6fbbf3', N'Charles', N'Orr', N'Cardiology - Interventionalist')
+INSERT INTO [dbo].[Physician] ([PhysicianID], [OwnerID], [PhysicianFirstName], [PhysicianLastName], [Specialty]) VALUES (10, N'6040d91b-fd01-40c5-bcb6-37d18d6fbbf3', N'Adam', N'Werne', N'Cardiology - Interventionalist')
 SET IDENTITY_INSERT [dbo].[Physician] OFF

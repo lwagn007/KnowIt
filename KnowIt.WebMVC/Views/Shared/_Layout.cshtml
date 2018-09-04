@@ -6,15 +6,14 @@
     <title>@ViewBag.Title KnowIt</title>
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/Content/fontawesome/fontawesome.css")
-    @Styles.Render("~/https://fonts.googleapis.com/css?family=Fira+Sans")
     @Styles.Render("~/Content/fontawesome")
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/Site.css")
 </head>
 <body>
     <div class="container">
-        <div class="navbar navbar-default col-md-12">
-            <div class="container col-md-12">
+        <div class="container col-md-4 navbar transparent" style="border-radius: 5px">
+            <div>
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
@@ -26,8 +25,13 @@
                     <ul class="nav navbar-nav">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Navigate &raquo;</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                                </ul>
+                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">KnowIT &raquo;</a>
                                 <ul class="dropdown-menu">
@@ -39,13 +43,13 @@
                                 </ul>
                             </li>
                         }
+                        @Html.Partial("_LoginPartial")
                     </ul>
-                    @Html.Partial("_LoginPartial")
                 </div>
             </div>
         </div>
     </div>
-    <div class="container space">
+    <div class="container">
         @RenderBody()
     </div>
     <div class="body-content navbar-fixed-bottom">

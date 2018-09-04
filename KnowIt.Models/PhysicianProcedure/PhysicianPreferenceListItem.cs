@@ -22,7 +22,7 @@ namespace KnowIt.Models.PhysicianProcedure
         public string EquipmentName { get; set; }
         public string PreferenceNote { get; set; }
         //public bool Assigned { get; set; }
-        //public virtual ICollection<Data.Medication> Medications { get; set; }
+        public virtual ICollection<Data.Medication> Medications { get; set; }
         //public virtual ICollection<Data.Equipment> Equipments { get; set; }
         //public virtual ICollection<PhysicianPreference> PhysicianPreferences { get; set; }
 

@@ -1,4 +1,5 @@
 ﻿using KnowIt.Data;
+using KnowIt.Models.Medication;
 using KnowIt.Models.PhysicianProcedure;
 using KnowIt.Services;
 using KnowIt.WebMVC.ViewModels;
@@ -11,29 +12,32 @@ using System.Web.Mvc;
 
 namespace KnowIt.WebMVC.Controllers
 {
+
     public class PhysicianPreferenceController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
+
         // GET: PhysicianPreference //TODO uncomment int?s if populating multiple meds.  
-        public ActionResult Index(int? id, int? medicationId)
+        public ActionResult Index() //int? id, int? medicationId
         {
             var viewModel = new PhysicianPreference();
             PhysicianPreferenceService service = NewMethod();
             var model = service.GetPhysicianPreferences();
 
             //TODO 3 uncomment to show multiple medications
-            if (id != null)
-            {
-                ViewBag.MedicationId = id.Value;
-                viewModel.Medications = viewModel.PhysicianPreferences.Where(
-                    p => p.PhysicianPreferenceID == id.Value).Single().Medications;
-            }
+            //if (id != null)
+            //{
+            //    ViewBag.MedicationId = id.Value;
+            //    viewModel.Medications = viewModel.PhysicianPreferences.Where(
+            //        p => p.PhysicianPreferenceID == id.Value).Single().Medications;
+            //}
 
-            if (medicationId != null)
-            {
-                ViewBag.MedicationID = id.Value;
-                viewModel.Medications = viewModel.PhysicianPreferences.Where(
-                    p => p.PhysicianPreferenceID == id.Value).Single().Medications;
-            }
+            //if (medicationId != null)
+            //{
+            //    ViewBag.MedicationID = id.Value;
+            //    viewModel.Medications = viewModel.PhysicianPreferences.Where(
+            //        p => p.PhysicianPreferenceID == id.Value).Single().Medications;
+            //}
 
             return View(model);
         }
@@ -51,31 +55,31 @@ namespace KnowIt.WebMVC.Controllers
             var equipments = equipmentService.GetEquipments();
 
 
-           ViewBag.PhysicianID = new SelectList(physicians, "PhysicianID", "PhysicianLastName");
+            ViewBag.PhysicianID = new SelectList(physicians, "PhysicianID", "PhysicianLastName");
             ViewBag.ProcedureID = new SelectList(procedures, "ProcedureID", "ProcedureName");
             ViewBag.EquipmentID = new SelectList(equipments, "EquipmentID", "EquipmentName");
             //ViewBag.MedicationId = new SelectList(medications, "MedicationId", "MedicationName");
 
-            var medication = new AllMedicationCreate();
-            medication.Medications = new List<AllMedicationCreate>();
+            var medication = new MedicationListItem();
+            medication.Medications = new List<MedicationListItem>();
             PopulateAssignedMedicationData(medication);
             return View();
         }
 
 
         //TODO 1 
-        private void PopulateAssignedMedicationData(AllMedicationCreate allMedication)
+        private void PopulateAssignedMedicationData(MedicationListItem allMedication)
         {
             var medService = CreateMedicationService();
             var allMeds = medService.GetMedications();
 
-            var viewModel = new List<AllMedications>();
+            var viewModel = new List<MedicationListItem>();
 
-            foreach(var med in allMeds)
+            foreach (var med in allMeds)
             {
-                viewModel.Add(new AllMedications
+                viewModel.Add(new MedicationListItem
                 {
-                    MedicationID = med.MedicationId,
+                    MedicationId = med.MedicationId,
                     Assigned = med.Assigned,
                     MedicationName = med.MedicationName
                 });
@@ -87,8 +91,32 @@ namespace KnowIt.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PhysicianPreferenceCreate model)
+        //PhysicianPreference was PhysicianPreferenceCreate
+        public ActionResult Create(PhysicianPreferenceCreate model, string[] selectedMedications)
         {
+            if (selectedMedications != null)
+            {
+                //model.Medications = new List<MedicationListItem>();
+
+                foreach (var medication in selectedMedications)
+                {
+                    var physPrefService = CreatePhysicianPreferenceService();
+                    var medId = int.Parse(medication);
+                    model.MedicationId = medId;
+                    physPrefService.CreatePhysicianPreference(model);
+                    
+                }
+            }
+            if (ModelState.IsValid)
+            {
+                //db.PhysicianPreferences.Add(model);
+                //db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            //PopulateAssignedCourseData(model);
+            // We need to get the Med id
+
+            //add the method        
             if (!ModelState.IsValid) return View(model);
 
             var service = CreatePhysicianPreferenceService();
@@ -204,7 +232,7 @@ namespace KnowIt.WebMVC.Controllers
             var service = new MedicationService(userId);
             return service;
         }
-        
+
         private EquipmentService CreateEquipmentService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
