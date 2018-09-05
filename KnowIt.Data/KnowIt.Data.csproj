@@ -67,21 +67,9 @@
   <ItemGroup>
     <Compile Include="Equipment.cs" />
     <Compile Include="Medication.cs" />
-    <Compile Include="Migrations\201808302105224_revertingbacktobasicphysicianpreferencecrud.cs" />
-    <Compile Include="Migrations\201808302105224_revertingbacktobasicphysicianpreferencecrud.Designer.cs">
-      <DependentUpon>201808302105224_revertingbacktobasicphysicianpreferencecrud.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808311817478_reenablemultiplemedscreateview.cs" />
-    <Compile Include="Migrations\201808311817478_reenablemultiplemedscreateview.Designer.cs">
-      <DependentUpon>201808311817478_reenablemultiplemedscreateview.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809041801221_multipleequipment.cs" />
-    <Compile Include="Migrations\201809041801221_multipleequipment.Designer.cs">
-      <DependentUpon>201809041801221_multipleequipment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809041841596_multipleprocedure.cs" />
-    <Compile Include="Migrations\201809041841596_multipleprocedure.Designer.cs">
-      <DependentUpon>201809041841596_multipleprocedure.cs</DependentUpon>
+    <Compile Include="Migrations\201809051655366_return.cs" />
+    <Compile Include="Migrations\201809051655366_return.Designer.cs">
+      <DependentUpon>201809051655366_return.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Physician.cs" />
@@ -95,17 +83,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808302105224_revertingbacktobasicphysicianpreferencecrud.resx">
-      <DependentUpon>201808302105224_revertingbacktobasicphysicianpreferencecrud.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808311817478_reenablemultiplemedscreateview.resx">
-      <DependentUpon>201808311817478_reenablemultiplemedscreateview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809041801221_multipleequipment.resx">
-      <DependentUpon>201809041801221_multipleequipment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809041841596_multipleprocedure.resx">
-      <DependentUpon>201809041841596_multipleprocedure.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809051655366_return.resx">
+      <DependentUpon>201809051655366_return.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

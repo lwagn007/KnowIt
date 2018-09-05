@@ -17,38 +17,9 @@ namespace KnowIt.WebMVC.Controllers
 
     public class PhysicianPreferenceController : Controller
     {
-        // GET: PhysicianPreference //TODO uncomment int?s if populating multiple meds.  
-        public ActionResult Index(int? id, int? physicianId) //int? id, int? medicationId, int? equipmentId, int? procedureId
+        public ActionResult Index() 
         {
-            var viewModel = new PhysicianPreference();
-            PhysicianPreferenceService service = NewMethod();
-            var model = service.GetPhysicianPreferences();
-
-            //TODO 3 uncomment to show multiple medications
-            if (id != null)
-            {
-                ViewBag.PhysicianId = id.Value;
-                viewModel.Medications = viewModel.PhysicianPreferences.Where(
-                    p => p.PhysicianID == id.Value).Single().Medications;
-            }
-
-            if (physicianId != null)
-
-
-            //if (id != null)
-            //{
-            //    ViewBag.PhysicianId = id.Value;
-            //    viewModel.Equipments = viewModel.PhysicianPreferences.Where(
-            //        p => p.PhysicianID == id.Value).Single().Equipments;
-            //}
-            //if (id != null)
-            //{
-            //    ViewBag.PhysicianId = id.Value;
-            //    viewModel.Procedures = viewModel.PhysicianPreferences.Where(
-            //        p => p.PhysicianID == id.Value).Single().Procedures;
-            //}
-
-            return View(model);
+            return View();
         }
 
         public ActionResult Create()

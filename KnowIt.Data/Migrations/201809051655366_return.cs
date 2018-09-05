@@ -3,7 +3,7 @@ namespace KnowIt.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class revertingbacktobasicphysicianpreferencecrud : DbMigration
+    public partial class _return : DbMigration
     {
         public override void Up()
         {
@@ -15,8 +15,11 @@ namespace KnowIt.Data.Migrations
                         OwnerID = c.Guid(nullable: false),
                         EquipmentName = c.String(nullable: false),
                         EquipmentNote = c.String(nullable: false),
+                        PhysicianPreference_PhysicianPreferenceID = c.Int(),
                     })
-                .PrimaryKey(t => t.EquipmentID);
+                .PrimaryKey(t => t.EquipmentID)
+                .ForeignKey("dbo.PhysicianPreference", t => t.PhysicianPreference_PhysicianPreferenceID)
+                .Index(t => t.PhysicianPreference_PhysicianPreferenceID);
             
             CreateTable(
                 "dbo.PhysicianPreference",
@@ -29,16 +32,28 @@ namespace KnowIt.Data.Migrations
                         MedicationID = c.Int(nullable: false),
                         EquipmentID = c.Int(nullable: false),
                         PreferenceNote = c.String(),
+                        Equipment_EquipmentID = c.Int(),
+                        Medication_MedicationID = c.Int(),
+                        Medication_MedicationID1 = c.Int(),
+                        PhysicianPreference_PhysicianPreferenceID = c.Int(),
+                        Procedure_ProcedureID = c.Int(),
+                        Equipment_EquipmentID1 = c.Int(),
                     })
                 .PrimaryKey(t => t.PhysicianPreferenceID)
-                .ForeignKey("dbo.Equipment", t => t.EquipmentID, cascadeDelete: true)
-                .ForeignKey("dbo.Medication", t => t.MedicationID, cascadeDelete: true)
+                .ForeignKey("dbo.Equipment", t => t.Equipment_EquipmentID)
+                .ForeignKey("dbo.Medication", t => t.Medication_MedicationID)
+                .ForeignKey("dbo.Medication", t => t.Medication_MedicationID1)
                 .ForeignKey("dbo.Physician", t => t.PhysicianID, cascadeDelete: true)
-                .ForeignKey("dbo.Procedure", t => t.ProcedureID, cascadeDelete: true)
+                .ForeignKey("dbo.PhysicianPreference", t => t.PhysicianPreference_PhysicianPreferenceID)
+                .ForeignKey("dbo.Procedure", t => t.Procedure_ProcedureID)
+                .ForeignKey("dbo.Equipment", t => t.Equipment_EquipmentID1)
                 .Index(t => t.PhysicianID)
-                .Index(t => t.ProcedureID)
-                .Index(t => t.MedicationID)
-                .Index(t => t.EquipmentID);
+                .Index(t => t.Equipment_EquipmentID)
+                .Index(t => t.Medication_MedicationID)
+                .Index(t => t.Medication_MedicationID1)
+                .Index(t => t.PhysicianPreference_PhysicianPreferenceID)
+                .Index(t => t.Procedure_ProcedureID)
+                .Index(t => t.Equipment_EquipmentID1);
             
             CreateTable(
                 "dbo.Medication",
@@ -50,8 +65,11 @@ namespace KnowIt.Data.Migrations
                         MedicationClass = c.String(),
                         MedicationUse = c.String(),
                         Assigned = c.Boolean(nullable: false),
+                        PhysicianPreference_PhysicianPreferenceID = c.Int(),
                     })
-                .PrimaryKey(t => t.MedicationID);
+                .PrimaryKey(t => t.MedicationID)
+                .ForeignKey("dbo.PhysicianPreference", t => t.PhysicianPreference_PhysicianPreferenceID)
+                .Index(t => t.PhysicianPreference_PhysicianPreferenceID);
             
             CreateTable(
                 "dbo.Physician",
@@ -74,8 +92,11 @@ namespace KnowIt.Data.Migrations
                         ProcedureName = c.String(),
                         ProcedureNote = c.String(),
                         ProcedureRoute = c.String(),
+                        PhysicianPreference_PhysicianPreferenceID = c.Int(),
                     })
-                .PrimaryKey(t => t.ProcedureID);
+                .PrimaryKey(t => t.ProcedureID)
+                .ForeignKey("dbo.PhysicianPreference", t => t.PhysicianPreference_PhysicianPreferenceID)
+                .Index(t => t.PhysicianPreference_PhysicianPreferenceID);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -155,18 +176,30 @@ namespace KnowIt.Data.Migrations
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
-            DropForeignKey("dbo.PhysicianPreference", "ProcedureID", "dbo.Procedure");
+            DropForeignKey("dbo.PhysicianPreference", "Equipment_EquipmentID1", "dbo.Equipment");
+            DropForeignKey("dbo.Procedure", "PhysicianPreference_PhysicianPreferenceID", "dbo.PhysicianPreference");
+            DropForeignKey("dbo.PhysicianPreference", "Procedure_ProcedureID", "dbo.Procedure");
+            DropForeignKey("dbo.PhysicianPreference", "PhysicianPreference_PhysicianPreferenceID", "dbo.PhysicianPreference");
             DropForeignKey("dbo.PhysicianPreference", "PhysicianID", "dbo.Physician");
-            DropForeignKey("dbo.PhysicianPreference", "MedicationID", "dbo.Medication");
-            DropForeignKey("dbo.PhysicianPreference", "EquipmentID", "dbo.Equipment");
+            DropForeignKey("dbo.Medication", "PhysicianPreference_PhysicianPreferenceID", "dbo.PhysicianPreference");
+            DropForeignKey("dbo.PhysicianPreference", "Medication_MedicationID1", "dbo.Medication");
+            DropForeignKey("dbo.PhysicianPreference", "Medication_MedicationID", "dbo.Medication");
+            DropForeignKey("dbo.Equipment", "PhysicianPreference_PhysicianPreferenceID", "dbo.PhysicianPreference");
+            DropForeignKey("dbo.PhysicianPreference", "Equipment_EquipmentID", "dbo.Equipment");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
-            DropIndex("dbo.PhysicianPreference", new[] { "EquipmentID" });
-            DropIndex("dbo.PhysicianPreference", new[] { "MedicationID" });
-            DropIndex("dbo.PhysicianPreference", new[] { "ProcedureID" });
+            DropIndex("dbo.Procedure", new[] { "PhysicianPreference_PhysicianPreferenceID" });
+            DropIndex("dbo.Medication", new[] { "PhysicianPreference_PhysicianPreferenceID" });
+            DropIndex("dbo.PhysicianPreference", new[] { "Equipment_EquipmentID1" });
+            DropIndex("dbo.PhysicianPreference", new[] { "Procedure_ProcedureID" });
+            DropIndex("dbo.PhysicianPreference", new[] { "PhysicianPreference_PhysicianPreferenceID" });
+            DropIndex("dbo.PhysicianPreference", new[] { "Medication_MedicationID1" });
+            DropIndex("dbo.PhysicianPreference", new[] { "Medication_MedicationID" });
+            DropIndex("dbo.PhysicianPreference", new[] { "Equipment_EquipmentID" });
             DropIndex("dbo.PhysicianPreference", new[] { "PhysicianID" });
+            DropIndex("dbo.Equipment", new[] { "PhysicianPreference_PhysicianPreferenceID" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");

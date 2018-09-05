@@ -7,13 +7,13 @@ namespace KnowIt.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class multipleequipment : IMigrationMetadata
+    public sealed partial class _return : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(multipleequipment));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_return));
         
         string IMigrationMetadata.Id
         {
-            get { return "201809041801221_multipleequipment"; }
+            get { return "201809051655366_return"; }
         }
         
         string IMigrationMetadata.Source
