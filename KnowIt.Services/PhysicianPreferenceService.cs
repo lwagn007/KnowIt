@@ -39,7 +39,29 @@ namespace KnowIt.Services
                 return ctx.SaveChanges() == 1;
             }
 
+        }
 
+        public IEnumerable<PhysicianPreferenceListItem> GetAllPhysicianPreferences()
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .PhysicianPreferences
+                        .Where(e => e.OwnerID == _userId)
+                        .Select(
+                        e => new PhysicianPreferenceListItem
+                        {
+                            PhysicianLastName = e.Physician.PhysicianLastName,
+                            EquipmentId = e.EquipmentID,
+                            MedicationId = e.MedicationID,
+                            MedicationName = e.Medication.MedicationName, 
+                            ProcedureId = e.ProcedureID,
+                            PhysicianId = e.PhysicianID,
+                            PreferenceNote = e.PreferenceNote
+                        });
+                return query.ToArray();
+            }
         }
 
         public IEnumerable<PhysicianPreferenceListItem> GetPhysicianPreferences(int physicianId, string preferenceNote)

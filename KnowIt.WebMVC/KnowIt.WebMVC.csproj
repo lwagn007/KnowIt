@@ -227,11 +227,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\aerial-aerial-view-application-935869.jpg" />
-    <Content Include="Content\assets\Hybrid_operating_theatre_gemelli_rome.jpg" />
-    <Content Include="Content\assets\Operatingroom_razavihospital.jpg" />
-    <Content Include="Content\assets\sci-fi-2992797_1920.jpg" />
-    <Content Include="Content\assets\suitesmall.jpg" />
-    <Content Include="Content\assets\US_Navy_100221-N-8366W-100_Cmdr._Dennis_Rivet,_left,_and_Hospital_Corpsman_2nd_Class_Bradley_Beckman_perform_a_spinal_surgery_at_sea.jpg" />
+    <Content Include="Content\assets\book-solid.svg" />
+    <Content Include="Content\assets\prescription-solid.svg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

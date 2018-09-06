@@ -6,7 +6,7 @@
 
 <div class="panel transparent">
     <div class="tablespace">
-        <h2><b>Physician Preference Library</b></h2>
+        <h2>Index</h2>
         <p>
             @Html.ActionLink("Create New", "Create")
         </p>
@@ -15,13 +15,19 @@
             <thead class="bg-primary">
                 <tr>
                     <th>
-                        Physician Last Name
+                        @Html.DisplayNameFor(model => model.PhysicianLastName)
                     </th>
                     <th>
-                        Procedure
+                        @Html.DisplayNameFor(model => model.ProcedureName)
                     </th>
                     <th>
-                        Procedure Note
+                        @Html.DisplayNameFor(model => model.MedicationName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EquipmentName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PreferenceNote)
                     </th>
                     <th></th>
                 </tr>
@@ -33,18 +39,23 @@
                         @Html.DisplayFor(modelItem => item.PhysicianLastName)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ProcedureName)
+                        @Html.DisplayFor(modelItem => item.ProcedureId)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ProcedureNote)
+                        @Html.DisplayFor(modelItem => item.MedicationId)
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EquipmentId)
                     </td>
                     <td>
-                        @*@Html.ActionLink("Edit", "Edit", new { id = item.PhysicianPreferenceId }) |*@
-                        @Html.ActionLink("Details", "Details", new { id = item.PhysicianPreferenceId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.PhysicianPreferenceId })
+                        @Html.DisplayFor(modelItem => item.PreferenceNote)
+                    </td>
+                    <td>|
+                        @Html.ActionLink("Details", "Details", new { id=item.PhysicianPreferenceId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.PhysicianPreferenceId }) |
                     </td>
                 </tr>
             }
+
         </table>
     </div>
 </div>

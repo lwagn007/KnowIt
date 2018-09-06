@@ -1,13 +1,7 @@
-﻿html {
-    /*height: 100%;*/
-}
-
-body {
+﻿body {
     background-image: url(assets/aerial-aerial-view-application-935869.jpg);
     background-position: center;
     padding-top: 50px;
-    /*padding-bottom: 20px;*/
-    /*height: 90vh;*/
     overflow: hidden auto;
     font-family: Arial;
 }
@@ -24,18 +18,17 @@ div {
     background: #FFFFFF;
 }
 
-
-/*.table {
-    height: 70%;
-}*/
-
 .transparent {
     background: rgba(255,255,255, 0.8);
 }
 
+.iconsize{
+    height: 56px;
+    width: 56px;
+}
+
 .panelsize {
     height: 100%;
-    /*min-width: 55%;*/
     margin: auto;
     border-radius: 5px;
     overflow: hidden auto;
@@ -43,10 +36,7 @@ div {
 
 .panel-body {
     background: rgba(122,164,180, 0.95);
-    /*padding-top: 2em;
-    padding-bottom: 3em;*/
 }
-
 
 .tablespace {
     width: 75%;
@@ -56,23 +46,17 @@ div {
     margin-bottom: 50px;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
     padding-left: 15px;
     padding-right: 15px;
 }
 
-
-/* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {

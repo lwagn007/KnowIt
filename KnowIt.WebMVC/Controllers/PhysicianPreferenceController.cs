@@ -19,7 +19,9 @@ namespace KnowIt.WebMVC.Controllers
     {
         public ActionResult Index() 
         {
-            return View();
+            var physPrefSvc = CreatePhysicianPreferenceService();
+            var list = physPrefSvc.GetAllPhysicianPreferences();
+            return View(list);
         }
 
         public ActionResult Create()
