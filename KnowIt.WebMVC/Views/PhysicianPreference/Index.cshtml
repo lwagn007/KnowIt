@@ -49,8 +49,8 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.PreferenceNote)
                     </td>
-                    <td>|
-                        @Html.ActionLink("Details", "Details", new { id=item.PhysicianPreferenceId }) |
+                    <td>@*|
+                        @Html.ActionLink("Details", "Details", new { id=item.PhysicianPreferenceId }) |*@
                         @Html.ActionLink("Delete", "Delete", new { id=item.PhysicianPreferenceId }) |
                     </td>
                 </tr>
